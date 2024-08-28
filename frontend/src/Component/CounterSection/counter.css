@@ -1,0 +1,29 @@
+.section-counter {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .counter-wrap {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .number {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .caption {
+    font-size: 22px;
+    color: #6c757d;
+  }
+  .section-counter{
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px) {
+    .counter-wrap {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  

@@ -1,0 +1,741 @@
+header {
+  width: 100%;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+header .container {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+header .container .top {
+  height: 33px;
+  background: linear-gradient(
+    98.3deg,
+    rgb(69 63 63) 10.6%,
+    rgb(32 30 30) 97.7%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header .container .top .content {
+  display: flex;
+  align-items: center;
+}
+
+header .container .top .content a {
+  font-weight: 300;
+  font-size: 12px;
+  padding: 0px 7px;
+  border-right: 1px solid white;
+  color: white;
+}
+
+
+header .container .bottom {
+background: transparent;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px;
+}
+header .container .bottom a {
+  color: black;
+}
+
+/* .desktop-mod li a{
+  list-style-type: none;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1px;
+} */
+
+header .container .bottom .logo {
+  text-decoration: none;
+  font-family: poppins;
+  width: 25%;
+  text-align: center;
+}
+
+header .container .bottom .logo img {
+  width: 100%;
+}
+
+header .container .bottom nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+header .container .bottom nav .desktop-mod {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.health-pointer {
+  text-decoration: none;
+}
+.travel-pointer {
+  text-decoration: none;
+}
+
+.desktop-mod {
+  list-style-type: none;
+}
+
+header .container .bottom nav .desktop-mod li {
+  height: 100%;
+  padding: 0px 20px;
+}
+
+header .container .bottom nav .desktop-mod li a {
+  color: black;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  height: 100%;
+  white-space: nowrap;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+header .container .bottom nav .desktop-mod li .health-pointer {
+  position: relative;
+}
+
+header .container .bottom nav .desktop-mod li .health-pointer .health-hover {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: auto;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header .container .bottom nav .desktop-mod li .health-pointer .health-hover li {
+  padding: 0%;
+  width: 100%;
+  /* height: 50%; */
+  overflow: hidden;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .health-pointer
+  .health-hover
+  li
+  a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .health-pointer
+  .health-hover
+  li
+  a:hover {
+  background-color: white;
+}
+
+.health-active {
+  max-height: 120px !important;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer {
+  position: relative;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer .travel-hover {
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: auto;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer .travel-hover li {
+  padding: 0%;
+  width: 100%;
+  overflow: hidden;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .travel-pointer
+  .travel-hover
+  li
+  a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .travel-pointer
+  .travel-hover
+  li
+  a:hover {
+  background-color: red;
+}
+
+.travel-active {
+  max-height: 240px !important;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer {
+  position: relative;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer .travel-hover {
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: 180%;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header .container .bottom nav .desktop-mod li .travel-pointer .travel-hover li {
+  padding: 0%;
+  width: 100%;
+  overflow: hidden;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .travel-pointer
+  .travel-hover
+  li
+  a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .travel-pointer
+  .travel-hover
+  li
+  a:hover {
+  background-color: red;
+  color: white;
+}
+
+.travel-active {
+  max-height: 240px !important;
+}
+
+header .container .bottom nav .desktop-mod li .Motor-pointer {
+  position: relative;
+}
+
+header .container .bottom nav .desktop-mod li .Motor-pointer .Motor-hover {
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: 180%;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header .container .bottom nav .desktop-mod li .Motor-pointer .Motor-hover li {
+  padding: 0%;
+  width: 100%;
+  /* height: 50%; */
+  overflow: hidden;
+}
+
+header .container .bottom nav .desktop-mod li .Motor-pointer .Motor-hover li a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Motor-pointer
+  .Motor-hover
+  li
+  a:hover {
+  background-color: red;
+  color: white;
+}
+
+.Motor-active {
+  max-height: 240px !important;
+}
+
+header .container .bottom nav .desktop-mod li .Corporate-pointer {
+  position: relative;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Corporate-pointer
+  .Corporate-hover {
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: auto;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Corporate-pointer
+  .Corporate-hover
+  li {
+  padding: 0%;
+  width: 100%;
+  /* height: 50%; */
+  overflow: hidden;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Corporate-pointer
+  .Corporate-hover
+  li
+  a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Corporate-pointer
+  .Corporate-hover
+  li
+  a:hover {
+  background-color: white;
+}
+
+.Corporate-active {
+  max-height: 240px !important;
+}
+
+header .container .bottom nav .desktop-mod li .Other-pointer {
+  position: relative;
+}
+
+header .container .bottom nav .desktop-mod li .Other-pointer .Other-hover {
+  position: absolute;
+  top: 100%;
+  left: -30%;
+  width: auto;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  gap: 3px;
+  box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.403);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+header .container .bottom nav .desktop-mod li .Other-pointer .Other-hover li {
+  padding: 0%;
+  width: 100%;
+  /* height: 50%; */
+  overflow: hidden;
+}
+
+header .container .bottom nav .desktop-mod li .Other-pointer .Other-hover li a {
+  padding: 8px 5px;
+  justify-content: flex-start;
+}
+
+header
+  .container
+  .bottom
+  nav
+  .desktop-mod
+  li
+  .Other-pointer
+  .Other-hover
+  li
+  a:hover {
+  background-color: white;
+}
+
+.Other-active {
+  max-height: 240px !important;
+}
+
+header .container .bottom .btn-box {
+  background-color: transparent;
+  height: 100%;
+  width: 14%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .container .bottom .btn-box a {
+  background-color: #2fb4f0;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 8px;
+}
+
+.menu {
+  display: none;
+}
+
+.mob-mod {
+  display: none;
+}
+
+header .container .bottom nav .mob-mod .health-mob-hover {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+header .container .bottom nav .mob-mod .health-mob-active {
+  max-height: 200px; /* Adjust this value as needed */
+  border-top: 1px solid rgb(146, 146, 146);
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+header .container .bottom nav .mob-mod .Travel-mob-hover {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+header .container .bottom nav .mob-mod .Travel-mob-active {
+  max-height: 400px; /* Adjust this value as needed */
+  border-top: 1px solid rgb(146, 146, 146);
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+header .container .bottom nav .mob-mod .Motor-mob-hover {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+header .container .bottom nav .mob-mod .Motor-mob-active {
+  max-height: 267px; /* Adjust this value as needed */
+  border-top: 1px solid rgb(146, 146, 146);
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+header .container .bottom nav .mob-mod .Corporate-mob-hover {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+header .container .bottom nav .mob-mod .Corporate-mob-active {
+  max-height: 334px; /* Adjust this value as needed */
+  border-top: 1px solid rgb(146, 146, 146);
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+header .container .bottom nav .mob-mod .Other-mob-hover {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+header .container .bottom nav .mob-mod .Other-mob-active {
+  max-height: 334px; /* Adjust this value as needed */
+  border-top: 1px solid rgb(146, 146, 146);
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+
+
+@media (max-width: 1013px) {
+
+  header .container .bottom nav .desktop-mod li {
+    padding: 0px 10px;
+  }
+
+  header .container .bottom .btn-box {
+    width: 18%;
+  }
+}
+
+@media (max-width: 885px) {
+  header .container .bottom nav .mob-mod .health-mob-hover {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* header .container .bottom nav .mob-mod .health-mob-hover li {
+        padding: 10px;
+    } */
+
+  header .container .top {
+    justify-content: center;
+  }
+
+  header .container .bottom {
+    padding: 0px 12px;
+    position: relative;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .container .bottom .logo img {
+    width: 50%;
+  }
+
+  .menu i {
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: transparent;
+    color: black;
+  }
+
+  header .container .bottom nav .desktop-mod {
+    display: none;
+  }
+
+  header .container .bottom .btn-box {
+    background-color: transparent;
+    width: auto;
+    gap: 12px;
+  }
+
+  header .container .bottom .btn-box a {
+    white-space: nowrap;
+  }
+
+  /* menu mod css  */
+
+  header .container .bottom nav .mob-mod {
+    height: calc(100vh - 100px) !important;
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    right: -110%;
+    z-index: 99999999;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    border-left: 1px solid rgb(145, 145, 145);
+    overflow-y: auto;
+
+    transition: all 0.4s linear;
+    /* background-color: #2FB4F0; */
+    /* color: white; */
+  }
+
+  header .container .bottom nav .mob-mod li {
+    width: 100%;
+    height: auto;
+  }
+
+  header .container .bottom nav .mob-mod li a {
+    border-bottom: 1px solid rgb(146, 146, 146);
+    height: auto;
+    display: inline-block;
+    padding: 10px 0px;
+    width: 100%;
+    padding-left: 10px;
+    color: black;
+  }
+  .health-mob-pointer {
+    color: black;
+  }
+
+  header .container .bottom nav .mob-mod li .formarrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 10px;
+  }
+
+  header .container .bottom nav .mob-mod li .formarrow i {
+    transition: transform 0.3s ease;
+  }
+
+  header .container .bottom nav .mob-mod li .formarrow i.rotate {
+    transform: rotate(180deg);
+  }
+
+  header .container .bottom nav .mob-mod li ul li a {
+    padding-left: 10px;
+    color: rgb(74, 74, 74);
+  }
+
+  header .container .bottom nav .mob-mod li ul li a i {
+    margin-right: 5px;
+    color: #2fb4f0;
+  }
+
+  header .container .bottom nav .mob-mod .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+  }
+
+  header .container .bottom nav .mob-mod .social-link i {
+    padding: 5px 18px;
+    border: 1px solid rgb(146, 146, 146);
+    font-size: 25px;
+  }
+
+  header .container .bottom nav .mob-mod .social-link i:nth-child(1) {
+    color: #1877f2;
+  }
+
+  header .container .bottom nav .mob-mod .social-link i:nth-child(2) {
+    color: #feda75;
+  }
+
+  header .container .bottom nav .mob-mod .social-link i:nth-child(3) {
+    color: #1da1f2;
+  }
+
+  .menu-Active {
+    right: 0 !important;
+  }
+
+  /* .menu-overflow{
+        overflow: visible !important;
+    } */
+}
+
+@media (max-width: 662px) {
+  header .container .bottom .logo {
+    width: 46%;
+  }
+
+  header .container .bottom .logo img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 562px) {
+  header .container .bottom .logo {
+    width: 46%;
+  }
+  header .container .bottom .logo img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 420px) {
+  header .container .bottom .logo {
+    width: 46%;
+  }
+  header .container .bottom .logo img {
+    width: 100%;
+  }
+}
+
+.responsive_cart {
+  display: none !important; /* Hide the cart icon by default */
+  display: flex !important;
+}

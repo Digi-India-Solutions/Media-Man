@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+.container .box:hover .imgBox {
+  transform: translate(-3.5rem, -3.5rem);
+}
+
+.container .box:hover .content {
+  transform: translate(3.5rem, 3.5rem);
+}
+
+.imgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+
+/* .cinemaadvertisement {
+  background-image: url("../../Image/cinema-advertising-bg.webp");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+} */
+
+.imgBox img {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  resize: both;
+}
+
+.content {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  align-items: flex-end;
+  text-align: center;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+
+.content h2 {
+  display: block;
+  font-size: 2rem;
+  color: #111;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+
+.content span {
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.ourprojects {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.projectslogo {
+  width: 13%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+.ourclients{
+  background-color: white;
+}
+.cinemaadvertiseheading {
+  max-width: 40%;
+  margin: auto;
+  text-align: center;
+  padding: 4rem 0rem;
+}
+.cinemacontent {
+  text-align: center;
+  position: relative;
+  top: 33%;
+}
+.understanding{
+  padding: 2rem;
+}
+
+@media (max-width: 600px) {
+  .understanding{
+    padding: 1rem;
+  }
+  .cinemaadvertiseheading {
+    padding: 0rem 0rem;
+  }
+  .cinemaadvertiseheading {
+    max-width: 100%;
+  }
+  .container .box:hover .content {
+    transform: translate(0, 3.5rem);
+  }
+  .container .box:hover .imgBox {
+    transform: translate(0, -3.5rem);
+  }
+}
+/*# sourceMappingURL=main.css.map */

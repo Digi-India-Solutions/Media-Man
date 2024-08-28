@@ -1,0 +1,214 @@
+.homeHeading {
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+}
+.homeHeading h1 {
+  margin-top: 2rem;
+  font-size: 40px;
+  color: black;
+  text-transform: capitalize;
+}
+.homeHeading h3 {
+  font-size: 20px;
+  color: black;
+}
+.card i {
+  font-size: 40px;
+  color: red;
+  text-align: center;
+}
+.statesforhomepage i {
+  font-size: 40px;
+  color: red;
+  text-align: center;
+}
+.card {
+  text-align: center;
+  cursor: pointer;
+}
+.popupSection {
+  top: 50%;
+  position: relative;
+}
+/* .modal-content {
+  background-image: url(../../Image/modalbg.jpg);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.modal-body {
+  display: grid;
+  gap: 20px;
+  background-color: #0000001e;
+}
+/* .overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.435);
+} */
+.hometopinput {
+  background: #00000082;
+  padding: 20px;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+.hometopinput input {
+  border-radius: 30px;
+}
+.card {
+  /* margin-top: calc(50vh - 250px); */
+  /* width: 260px; */
+  border: none;
+  border-radius: 20px;
+  color: #808080;
+  transition: 0.1s;
+}
+.statesforhomepage {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: #808080;
+  transition: 0.1s;
+  transition: 0.3s;
+}
+.statesforhomepage:hover {
+  background-color: darkslategray;
+  color: white;
+  transition: 0.3s;
+}
+
+.card-black {
+  box-sizing: border-box;
+  width: 100%;
+  /* height: 140px; */
+  padding: 20px 18px;
+  border-radius: 20px;
+  background-color: darkslategray;
+
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* .card-content {
+  padding: 10px 10px;
+} */
+
+.card:hover {
+  scale: 105%;
+  box-shadow: calc(var(--mouse-x) * -30px) calc(var(--mouse-y) * -30px) 6px
+    rgba(0, 0, 0, 0.3);
+  transform: perspective(900px) rotateY(calc(var(--mouse-x) * 100deg))
+    rotateX(calc(var(--mouse-y) * -100deg));
+  transition: 0.1s;
+}
+.statesforhomepage:hover {
+  scale: 105%;
+  box-shadow: calc(var(--mouse-x) * -30px) calc(var(--mouse-y) * -30px) 6px
+    rgba(0, 0, 0, 0.3);
+  transform: perspective(900px) rotateY(calc(var(--mouse-x) * 100deg))
+    rotateX(calc(var(--mouse-y) * -100deg));
+  transition: 0.1s;
+}
+
+.workingcard {
+  display: flex;
+  justify-content: space-between;
+  max-width: 45%;
+  margin: auto;
+  gap: 1rem;
+}
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .input-group-append .input-group-text {
+  background: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: none;
+}
+.input-group {
+  background-color: black;
+  padding: 5px;
+  max-width: 70%;
+  margin: auto;
+  border-radius: 2rem;
+  top: 1rem;
+}
+input:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+.form-control {
+  border-radius: 0;
+}
+.list-group {
+  position: absolute;
+  top: 100%;
+  position: "absolute";
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+}
+.list-group li {
+  text-align: start;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.list-group li:hover {
+  background-color: #000000;
+  color: white;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  .input-group {
+    max-width: 100%;
+  }
+  .homeHeading h1 {
+    font-size: 20px;
+  }
+  .homeHeading {
+    max-width: 100%;
+  }
+  .hometopinput {
+    padding: 10px;
+    max-width: 100%;
+    margin: 0;
+  }
+  /* .homeback {
+    height: 100%;
+  } */
+  .homeHeading h3 {
+    margin-top: 0rem;
+    font-size: 14px;
+  }
+
+  .workingcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 80%;
+  }
+  .card {
+    max-width: 100%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* @media only screen and (max-width: 992px) {
+  .homeHeading h1 {
+    font-size: 40px;
+  }
+} */
