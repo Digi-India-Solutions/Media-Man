@@ -253,7 +253,7 @@ function Cinema() {
                       <img src={seatcinema} alt="seatcinema" /> &nbsp; &nbsp;Seats Available: {item.seatingCapacity}
                     </p>
                     <p className="person">
-                      <img src={spendcinema} alt="spendcinema" /> &nbsp; &nbsp;Price: {item.baseRate10SecWeek}
+                      <img src={spendcinema} alt="spendcinema" /> &nbsp; &nbsp;Price: {item.baseRate10SecWeek}/10 sec
                     </p>
                     <p className="addbutton">
                       {
