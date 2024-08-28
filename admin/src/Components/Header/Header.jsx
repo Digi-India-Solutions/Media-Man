@@ -8,6 +8,11 @@ const Header = () => {
   const handletoggleBtn =()=>{
     setSideToggle(!sidetoggle)
   }
+
+  const logout = ()=>{
+    sessionStorage.clear()
+    window.location.href="/"
+  }
   return (
     <>
       <header>
@@ -19,16 +24,11 @@ const Header = () => {
             </div>
           </div>
           <div className="left">
-            <a href="" target="_blank">
+            <a href="https://mediaman.in" target="_blank">
               <i class="fa-solid fa-globe"></i>
               Go To Website
             </a>
-
-            <div className="logout">
-              Log Out <i class="fa-solid fa-right-from-bracket"></i>
-            </div>
           </div>
-
         </div>
 
         <div className={`rightNav ${sidetoggle ? "active" : "" } `  }>
@@ -49,7 +49,7 @@ const Header = () => {
             <li><Link to="/all-radios" onClick={handletoggleBtn}> <i class="fa-solid fa-tag"></i> Radio Query </Link></li>
             <li><Link to="/all-query" onClick={handletoggleBtn}> <i class="fa-solid fa-tag"></i> Enquery Query </Link></li>
             
-            <button className='logout mb-5'>Log Out <i class="fa-solid fa-right-from-bracket"></i></button>
+            <button className='logout mb-5' onClick={logout}>Log Out <i class="fa-solid fa-right-from-bracket"></i></button>
 
           </ul>
         </div>

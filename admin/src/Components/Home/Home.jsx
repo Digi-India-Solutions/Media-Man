@@ -1,141 +1,150 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Header from '../Header/Header';
+import Dashboard from '../../Pages/Dashboard/Dashboard';
+import AllCategory from '../../Pages/Category/AllCategory';
+import AddCategory from '../../Pages/Category/AddCategory';
+import EditCategory from '../../Pages/Category/EditCategory';
+import AllProduct from '../../Pages/Products/AllProduct';
+import AddProduct from '../../Pages/Products/AddProduct';
+import AllBanner from '../../Pages/Banners/AllBanner';
+import AddBanner from '../../Pages/Banners/AddBanner';
+import EditBanner from '../../Pages/Banners/EditBanner';
+import AllShopBanner from '../../Pages/ShopBanner/AllShopBanner';
+import AddShopBanner from '../../Pages/ShopBanner/AddShopBanner';
+import EditShopBanner from '../../Pages/ShopBanner/EditShopBanner';
+import AllTags from '../../Pages/Tags/AllTags';
+import AddTag from '../../Pages/Tags/AddTag';
+import EditTag from '../../Pages/Tags/EditTag';
+import AllVoucher from '../../Pages/Vouchers/AllVoucher';
+import CreateVoucher from '../../Pages/Vouchers/AddVoucher';
+import AllOrder from '../../Pages/Orders/AllOrder';
+import AllUsers from '../../Pages/Users/AllUsers';
+import AllState from '../../Pages/state/AllState';
+import AddState from '../../Pages/state/AddState';
+import Editstate from '../../Pages/state/Editstate';
+import AllCity from '../../Pages/City/AllCity';
+import AddCity from '../../Pages/City/AddCity';
+import Editcity from '../../Pages/City/Editcity';
+import EditCinema from '../../Pages/Products/EditCinema';
+import SinglePageDetails from '../../Pages/Users/SinglePageDetails';
+import AddmanualHoading from '../../Pages/Banners/AddmanualHoading';
+import AddManualcinema from '../../Pages/Products/AddManualcinema';
+import AllMedia from '../../Pages/Media/AllMedia';
+import AddMedia from '../../Pages/Media/AddMedia';
+import EditMedia from '../../Pages/Media/EditMedia';
+import SinglePageDtata from '../../Pages/Orders/SinglePageDtata';
+import AllRadioCategory from '../../Pages/RadioCategory/AllRadioCategory';
+import AddRadioCategory from '../../Pages/RadioCategory/AddRadioCategory';
+import EditRadioCategory from '../../Pages/RadioCategory/EditRadioCategory';
+import AllRadio from '../../Pages/Radio/AllRadio';
+import AddRadio from '../../Pages/Radio/AddRadio';
+import AllRadioQuery from '../../Pages/RadioQuery/AllRadioQuery';
+import SinglePageDtataRadio from '../../Pages/RadioQuery/SinglePageDtataRadio';
+import AllQuery from '../../Pages/Query/AllQuery';
+import AllBlog from '../../Pages/Blog/AllBlog';
+import AddBlog from '../../Pages/Blog/AddBlog';
+import EditBlog from '../../Pages/Blog/EditBlog';
+import Login from '../auth/Login';
 
-import Header from '../Header/Header'
-import Dashboard from '../../Pages/Dashboard/Dashboard'
-import AllCategory from '../../Pages/Category/AllCategory'
-import AddCategory from '../../Pages/Category/AddCategory'
-import EditCategory from '../../Pages/Category/EditCategory'
-import AllProduct from '../../Pages/Products/AllProduct'
-import AddProduct from '../../Pages/Products/AddProduct'
-import AllBanner from '../../Pages/Banners/AllBanner'
-import AddBanner from '../../Pages/Banners/AddBanner'
-import EditBanner from '../../Pages/Banners/EditBanner'
-import AllShopBanner from '../../Pages/ShopBanner/AllShopBanner'
-import AddShopBanner from '../../Pages/ShopBanner/AddShopBanner'
-import EditShopBanner from '../../Pages/ShopBanner/EditShopBanner'
-import AllTags from '../../Pages/Tags/AllTags'
-import AddTag from '../../Pages/Tags/AddTag'
-import EditTag from '../../Pages/Tags/EditTag'
-import AllVoucher from '../../Pages/Vouchers/AllVoucher'
-import CreateVoucher from '../../Pages/Vouchers/AddVoucher'
-import AllOrder from '../../Pages/Orders/AllOrder'
-import AllUsers from '../../Pages/Users/AllUsers'
-import AllState from '../../Pages/state/AllState'
-import AddState from '../../Pages/state/AddState'
-import Editstate from '../../Pages/state/Editstate'
-import AllCity from '../../Pages/City/AllCity'
-import AddCity from '../../Pages/City/AddCity'
-import Editcity from '../../Pages/City/Editcity'
-import EditCinema from '../../Pages/Products/EditCinema'
-import SinglePageDetails from '../../Pages/Users/SinglePageDetails'
-import AddmanualHoading from '../../Pages/Banners/AddmanualHoading'
-import AddManualcinema from '../../Pages/Products/AddManualcinema'
-import AllMedia from '../../Pages/Media/AllMedia'
-import AddMedia from '../../Pages/Media/AddMedia'
-import EditMedia from '../../Pages/Media/EditMedia'
-import SinglePageDtata from '../../Pages/Orders/SinglePageDtata'
-import AllRadioCategory from '../../Pages/RadioCategory/AllRadioCategory'
-import AddRadioCategory from '../../Pages/RadioCategory/AddRadioCategory'
-import EditRadioCategory from '../../Pages/RadioCategory/EditRadioCategory'
-import AllRadio from '../../Pages/Radio/AllRadio'
-import AddRadio from '../../Pages/Radio/AddRadio'
-import AllRadioQuery from '../../Pages/RadioQuery/AllRadioQuery'
-import SinglePageDtataRadio from '../../Pages/RadioQuery/SinglePageDtataRadio'
-import AllQuery from '../../Pages/Query/AllQuery'
-import AllBlog from '../../Pages/Blog/AllBlog'
-import AddBlog from '../../Pages/Blog/AddBlog'
-import EditBlog from '../../Pages/Blog/EditBlog'
 
 const Home = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loggedIn = sessionStorage.getItem('login');
+    setIsLoggedIn(loggedIn === 'true');
+  }, []);
+
+  const handleLogin = (email, password) => {
+    if (email === 'mediaman@gmail.com' && password === 'mediaman@123') {
+      sessionStorage.setItem('login', 'true');
+      setIsLoggedIn(true);
+      toast.success('Login successful!');
+    } else {
+      toast.error('Invalid Email Address or password');
+    }
+  };
+
   return (
     <>
+      {isLoggedIn ? (
+        <>
+          <Header />
+          <div className="rightside">
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
 
-      <Header />
-      <div className="rightside">
-        <Routes>
-          <Route path={"/dashboard"} element={<Dashboard />} />
+              {/* Category --  */}
+              <Route path="/all-category" element={<AllCategory />} />
+              <Route path="/add-category" element={<AddCategory />} />
+              <Route path="/edit-category/:_id" element={<EditCategory />} />
 
-          {/* Category --  */}
-          <Route path={"/all-category"} element={<AllCategory />} />
-          <Route path={"/add-category"} element={<AddCategory />} />
-          <Route path={"/edit-category/:_id"} element={<EditCategory />} />
+              <Route path="/all-media" element={<AllMedia />} />
+              <Route path="/add-media" element={<AddMedia />} />
+              <Route path="/edit-media/:_id" element={<EditMedia />} />
 
-          <Route path={"/all-media"} element={<AllMedia />} />
-          <Route path={"/add-media"} element={<AddMedia />} />
-          <Route path={"/edit-media/:_id"} element={<EditMedia />} />
+              {/* Product --  */}
+              <Route path="/all-products" element={<AllProduct />} />
+              <Route path="/add-product" element={<AddProduct />} />
+              <Route path="/edit-cinema/:_id" element={<EditCinema />} />
+              <Route path="/add-cinema-manual" element={<AddManualcinema />} />
 
-          {/* Product --  */}
-          <Route path={"/all-products"} element={<AllProduct />} />
-          <Route path={"/add-product"} element={<AddProduct />} />
-          <Route path={"/edit-cinema/:_id"} element={<EditCinema />} />
-          <Route path={"/add-cinema-manual"} element={<AddManualcinema />} />
+              {/* --- Orders --- */}
+              <Route path="/all-users" element={<AllUsers />} />
+              <Route path="/user/:_id" element={<SinglePageDetails />} />
 
+              {/* --- Vouchers --- */}
+              <Route path="/all-voucher" element={<AllVoucher />} />
+              <Route path="/add-voucher" element={<CreateVoucher />} />
 
-          {/* --- Orders --- */}
-          <Route path={"/all-users"} element={<AllUsers />} />
-          <Route path={"/user/:_id"} element={<SinglePageDetails />} />
+              {/* --- Tags --- */}
+              <Route path="/all-tags" element={<AllTags />} />
+              <Route path="/add-tag" element={<AddTag />} />
+              <Route path="/edit-tag/:_id" element={<EditTag />} />
 
-          {/* --- Vouchers --- */}
-          <Route path={"/all-voucher"} element={<AllVoucher />} />   {/* // All Vouchers */}
-          <Route path={"/add-voucher"} element={<CreateVoucher />} />
+              <Route path="/all-state" element={<AllState />} />
+              <Route path="/add-state" element={<AddState />} />
+              <Route path="/edit-state/:_id" element={<Editstate />} />
 
-          {/* --- Tags --- */}
-          <Route path={"/all-tags"} element={<AllTags />} />
-          <Route path={"/add-tag"} element={<AddTag />} />
-          <Route path={"/edit-tag/:_id"} element={<EditTag />} />
+              <Route path="/all-city" element={<AllCity />} />
+              <Route path="/add-city" element={<AddCity />} />
+              <Route path="/edit-city/:_id" element={<Editcity />} />
 
-          <Route path={"/all-state"} element={<AllState />} />
-          <Route path={"/add-state"} element={<AddState />} />
-          <Route path={"/edit-state/:_id"} element={<Editstate />} />
+              {/* --- Banners --- */}
+              <Route path="/all-banners" element={<AllBanner />} />
+              <Route path="/add-banner" element={<AddBanner />} />
+              <Route path="/edit-banner/:_id" element={<EditBanner />} />
+              <Route path="/add-banner/manual" element={<AddmanualHoading />} />
 
-          <Route path={"/all-city"} element={<AllCity />} />
-          <Route path={"/add-city"} element={<AddCity />} />
-          <Route path={"/edit-city/:_id"} element={<Editcity />} />
+              <Route path="/all-radiosname" element={<AllRadioCategory />} />
+              <Route path="/add-radiosname" element={<AddRadioCategory />} />
+              <Route path="/edit-radiosname/:_id" element={<EditRadioCategory />} />
 
-          {/* --- Banners --- */}
-          <Route path={"/all-banners"} element={<AllBanner />} />
-          <Route path={"/add-banner"} element={<AddBanner />} />
-          <Route path={"/edit-banner/:_id"} element={<EditBanner />} />
-          <Route path={"/add-banner/manual"} element={<AddmanualHoading />} />
+              <Route path="/all-radio" element={<AllRadio />} />
+              <Route path="/add-radio" element={<AddRadio />} />
 
-          {/* --- Banners --- */}
-          <Route path={"/all-radiosname"} element={<AllRadioCategory />} />
-          <Route path={"/add-radiosname"} element={<AddRadioCategory />} />
-          <Route path={"/edit-radiosname/:_id"} element={<EditRadioCategory />} />
+              {/* --- Orders --- */}
+              <Route path="/all-orders" element={<AllOrder />} />
+              <Route path="/single-data/:_id" element={<SinglePageDtata />} />
 
+              <Route path="/all-radios" element={<AllRadioQuery />} />
+              <Route path="/single-data-radio/:_id" element={<SinglePageDtataRadio />} />
 
-          <Route path={"/all-radio"} element={<AllRadio />} />
-          <Route path={"/add-radio"} element={<AddRadio />} />
+              <Route path="/all-blog" element={<AllBlog />} />
+              <Route path="/add-blog" element={<AddBlog />} />
+              <Route path="/edit-blog/:_id" element={<EditBlog />} />
 
-          {/* --- Orders --- */}
-          <Route path={"/all-orders"} element={<AllOrder />} />
-          <Route path={"/single-data/:_id"} element={<SinglePageDtata />} />
-
-          <Route path={"/all-radios"} element={<AllRadioQuery />} />
-          <Route path={"/single-data-radio/:_id"} element={<SinglePageDtataRadio />} />
-
-
-          <Route path={"/all-blog"} element={<AllBlog />} />
-          <Route path={"/add-blog"} element={<AddBlog />} />
-          <Route path={"/edit-blog/:_id"} element={<EditBlog />} />
-
-
-          <Route path={"/all-query"} element={<AllQuery />} />
-
-
-
-
-
-
-
-          {/* all-shop */}
-
-        </Routes>
-      </div>
-
+              <Route path="/all-query" element={<AllQuery />} />
+            </Routes>
+          </div>
+        </>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
