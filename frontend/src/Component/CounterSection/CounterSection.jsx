@@ -80,7 +80,7 @@ const CounterSection = () => {
           >
             <div className="counter-wrap mb-5 mb-lg-0">
               <span className="number">
-                <span className="countup text-primary" data-count="34">
+                <span className="countup text-primary" data-count="28">
                   0
                 </span>
               </span>
@@ -96,7 +96,7 @@ const CounterSection = () => {
           >
             <div className="counter-wrap mb-5 mb-lg-0">
               <span className="number">
-                <div className="countup text-primary" data-count="7">
+                <div className="countup text-primary" data-count="8">
                   0
                 </div>
               </span>

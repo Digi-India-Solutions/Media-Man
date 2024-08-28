@@ -18,7 +18,7 @@ const PopupBox = () => {
 
     const [loading, setLoading] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [showModal, setShowModal] = useState(false); // State to control modal visibility
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,8 +34,11 @@ const PopupBox = () => {
                     message: "",
                     lookingfor: ""
                 });
-                setIsSubmitted(true); // Mark as submitted
-                setShowModal(false); // Hide the modal after submission
+                setIsSubmitted(true);
+                setShowModal(false);
+
+                // Save submission date to localStorage
+                localStorage.setItem('lastFormSubmission', new Date().toISOString());
             }
         } catch (error) {
             console.error(error);
@@ -46,16 +49,30 @@ const PopupBox = () => {
     };
 
     useEffect(() => {
+        const lastSubmission = localStorage.getItem('lastFormSubmission');
+        if (lastSubmission) {
+            const lastSubmissionDate = new Date(lastSubmission);
+            const currentDate = new Date();
+            const timeDifference = currentDate - lastSubmissionDate;
+            const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+            if (daysDifference >= 5) {
+                setIsSubmitted(false); // Reset submission status after 5 days
+            } else {
+                setIsSubmitted(true);
+            }
+        }
+
         let intervalId;
         if (!isSubmitted) {
             intervalId = setInterval(() => {
-                setShowModal(true); // Show the modal at intervals
-            }, 90000);
+                setShowModal(true);
+            }, 60000);
         }
+
         return () => clearInterval(intervalId);
     }, [isSubmitted]);
 
-    // Close the modal
     const handleCloseModal = () => {
         setShowModal(false);
     };
