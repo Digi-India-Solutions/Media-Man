@@ -32,7 +32,7 @@ function RadioAdvertisement() {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get("https://mediamanserver.onrender.com/api/allradio");
+      const res = await axios.get("https://api.mediaman.in/api/allradio");
       if (res.status === 200) {
         const fetchedData = res.data.data.reverse();
         setData(fetchedData);

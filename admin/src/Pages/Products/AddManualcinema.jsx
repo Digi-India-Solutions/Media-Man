@@ -28,17 +28,17 @@ const AddManualCinema = () => {
 
     useEffect(() => {
         // Fetch cinema chains
-        axios.get('https://mediamanserver.onrender.com/api/create-cinema')
+        axios.get('https://api.mediaman.in/api/create-cinema')
             .then(response => setCinemaChains(response.data.data))
             .catch(error => console.error('Error fetching cinema chains:', error));
 
         // Fetch states
-        axios.get('https://mediamanserver.onrender.com/api/state')
+        axios.get('https://api.mediaman.in/api/state')
             .then(response => setStates(response.data.data))
             .catch(error => console.error('Error fetching states:', error));
 
         // Fetch categories
-        axios.get('https://mediamanserver.onrender.com/api/category')
+        axios.get('https://api.mediaman.in/api/category')
             .then(response => setCategories(response.data.data))
             .catch(error => console.error('Error fetching categories:', error));
     }, []);
@@ -51,7 +51,7 @@ const AddManualCinema = () => {
         });
 
         // Fetch cities based on selected state
-        axios.get(`https://mediamanserver.onrender.com/api/city?state=${value}`)
+        axios.get(`https://api.mediaman.in/api/city?state=${value}`)
             .then(response => setCities(response.data.data))
             .catch(error => console.error('Error fetching cities:', error));
     };
@@ -95,7 +95,7 @@ const AddManualCinema = () => {
                 }
             }
     
-            const res = await axios.post('https://mediamanserver.onrender.com/api/manual-create', data, {
+            const res = await axios.post('https://api.mediaman.in/api/manual-create', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

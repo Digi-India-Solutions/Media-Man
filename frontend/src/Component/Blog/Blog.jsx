@@ -8,7 +8,7 @@ const BlogList = () => {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get("https://mediamanserver.onrender.com/api/blog");
+      const res = await axios.get("https://api.mediaman.in/api/blog");
       if (res.status === 200) {
         setData(res.data.data.reverse());
       }

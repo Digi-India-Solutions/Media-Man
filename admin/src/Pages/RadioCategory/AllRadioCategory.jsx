@@ -10,7 +10,7 @@ const AllRadioCategory = () => {
 
     const getApiData = async () => {
         try {
-            const res = await axios.get("https://mediamanserver.onrender.com/api/radioCategory")
+            const res = await axios.get("https://api.mediaman.in/api/radioCategory")
             console.log(res)
             if (res.status === 200) {
                 const newData = res.data.data
@@ -23,7 +23,7 @@ const AllRadioCategory = () => {
 
     const deleteCinema = async (_id) => {
         try {
-            const res = await axios.delete("https://mediamanserver.onrender.com/api/radioCategory/" + _id)
+            const res = await axios.delete("https://api.mediaman.in/api/radioCategory/" + _id)
             if (res.status === 200) {
                 toast.success(res.data.message)
                 getApiData()

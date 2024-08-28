@@ -10,7 +10,7 @@ const SinglePageDtata = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://mediamanserver.onrender.com/api/hoadingcart/${_id}`);
+                const response = await axios.get(`https://api.mediaman.in/api/hoadingcart/${_id}`);
                 console.log(response.data);
                 setData(response.data.data);
             } catch (error) {

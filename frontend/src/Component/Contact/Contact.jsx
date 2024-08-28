@@ -20,7 +20,7 @@ const Contact = () => {
   const postData = async (e) => {
     try {
       e.preventDefault()
-      const res = await axios.post("https://mediamanserver.onrender.com/api/contacts" ,data)
+      const res = await axios.post("https://api.mediaman.in/api/contacts" ,data)
       if (res.status === 200) {
         toast.success("Your Query Send Suucessfully")
         setData({

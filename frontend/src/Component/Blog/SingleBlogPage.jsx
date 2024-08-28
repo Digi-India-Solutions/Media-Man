@@ -10,7 +10,7 @@ const SingleBlogPage = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("https://mediamanserver.onrender.com/api/blog");
+      const res = await axios.get("https://api.mediaman.in/api/blog");
       if (res.status === 200) {
         setAllBlog(res.data.data.reverse());
       }
@@ -22,7 +22,7 @@ const SingleBlogPage = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`https://mediamanserver.onrender.com/api/blog/${_id}`);
+        const res = await axios.get(`https://api.mediaman.in/api/blog/${_id}`);
         if (res.status === 200) {
           setBlog(res.data.data);
         }

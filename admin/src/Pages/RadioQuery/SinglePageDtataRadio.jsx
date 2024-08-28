@@ -10,7 +10,7 @@ const SinglePageDtataRadio = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://mediamanserver.onrender.com/api/radio-cart/${_id}`);
+                const response = await axios.get(`https://api.mediaman.in/api/radio-cart/${_id}`);
                 console.log(response.data);
                 setData(response.data.data);
             } catch (error) {

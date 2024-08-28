@@ -27,7 +27,7 @@ const AddCinema = () => {
         formDataObj.append('file', formData.file);
 
         try {
-            const response = await axios.post('https://mediamanserver.onrender.com/api/cinemaimport', formDataObj, {
+            const response = await axios.post('https://api.mediaman.in/api/cinemaimport', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

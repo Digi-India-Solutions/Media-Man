@@ -6,7 +6,7 @@ const AllUsers = () => {
     const [data, setData] = useState([])
     const getApidata = async () => {
         try {
-            const res = await axios.get("https://mediamanserver.onrender.com/api/cinemaCart")
+            const res = await axios.get("https://api.mediaman.in/api/cinemaCart")
             console.log(res)
             if (res.status === 200) {
                 const newData = res.data.data

@@ -13,7 +13,7 @@ const AddState = () => {
         e.preventDefault()
         try {
             setIsLoading(true)
-            const res = await axios.post("https://mediamanserver.onrender.com/api/state", { state })
+            const res = await axios.post("https://api.mediaman.in/api/state", { state })
             if (res.status === 200) {
                 navigate("/all-state")
                 setIsLoading(false)
