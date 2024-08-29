@@ -8,7 +8,7 @@ import bus from "../../Image/bus.webp";
 import Radio from "../../Image/radio.jpeg";
 import "./solution.css";
 import { Link } from "react-router-dom";
-import MetaTag from "../Meta/MetaTag";
+
 function OurSolution() {
   const ourWork = [
     { pic: CinemaAdvertising, title: "Cinema Advertising", to: "/cinema" },
@@ -34,11 +34,6 @@ function OurSolution() {
   ];
   return (
     <>
-      <MetaTag
-        title="Our Solutions - Media Man"
-        description="Explore Media Man's diverse advertising solutions including Cinema Advertising, Outdoor Hoardings, Airport Branding, Radio Advertising, and Bus Branding. Learn how our tailored solutions can enhance your brand's visibility and impact."
-        keyword="Media Man, advertising solutions, cinema advertising, outdoor hoardings, airport branding, radio advertising, bus branding, brand visibility, advertising services"
-      />
 
       <div className="services">
         <div className="container">

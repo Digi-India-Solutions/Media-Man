@@ -1,16 +1,9 @@
 import React from "react";
 import "../WhoWeAre/whoweare.css";
 import image from "../../Image/roadbanner4.webp";
-import MetaTag from "../Meta/MetaTag";
 function WhoWeAre() {
   return (
     <>
-    <MetaTag
-  title="About Us - Media Man"
-  description="Learn more about Media Man Advertising and our passion for storytelling in advertising. Since 2012, we have been delivering impactful advertising solutions that capture attention and drive results."
-  keyword="Media Man, about us, advertising, company overview, Media Man Advertising"
-/>
-
       <section class="about-section">
         <div class="container">
           <div class="row">

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./counter.css"; // Make sure to include your CSS for styling
-import MetaTag from "../Meta/MetaTag";
 
 const CounterSection = () => {
   const [viewed, setViewed] = useState(false);
@@ -72,11 +71,6 @@ const CounterSection = () => {
 
   return (
     <>
-      <MetaTag
-        title="Our Achievements - Media Man"
-        description="Explore our achievements with real-time counter displays. See our extensive reach across states, union territories, screens, and districts. Discover the impact we have across the country."
-        keyword="Achievements, Counter, Media Man, States, Union Territories, Screens, Districts"
-      />
 
       <div className="container">
         <div className="row section-counter">

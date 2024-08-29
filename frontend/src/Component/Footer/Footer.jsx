@@ -2,15 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer/footer.css";
 import logo from "../../Image/logo.png";
-import MetaTag from "../Meta/MetaTag";
 const Footer = () => {
   return (
     <>
-    <MetaTag
-  title="Footer | Media Men"
-  description="Explore the footer section of Media Men, featuring our company logo, legal information, services, solutions, contact details, and social media links. Discover more about our advertising services and get in touch with us."
-  keyword="Media Men, advertising, marketing, footer, contact, services, solutions, legal information, social media"
-/>
       <div class="pg-footer">
         <footer class="footer">
           <div class="row footer-content">
