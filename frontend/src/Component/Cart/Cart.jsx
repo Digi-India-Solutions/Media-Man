@@ -22,7 +22,6 @@ function Cart() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   const navigate = useNavigate()
   // Determine the type based on cart items
   const getCartType = () => {
@@ -151,7 +150,7 @@ function Cart() {
 
       localStorage.removeItem("cartItems");
       toast.success("Enquiry submitted successfully.");
-      navigate("/thanku")
+      window.location.href = "/thanku"
     } catch (error) {
       console.error("Error submitting enquiry:", error);
       alert("Failed to submit enquiry. Please try again.");
