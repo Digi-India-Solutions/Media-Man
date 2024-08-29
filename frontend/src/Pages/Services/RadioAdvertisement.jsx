@@ -243,7 +243,7 @@ function RadioAdvertisement() {
                         <img src={location} alt="location" />&nbsp; &nbsp; City: {item.city}
                       </p>
                       <p className="person">
-                        <img src={spendcinema} alt="spending" />&nbsp; &nbsp; ₹ {item.rate}
+                        <img src={spendcinema} alt="spending" />&nbsp; &nbsp; ₹ {item.rate} /per 10 sec spot
                       </p>
                       <p className="addbutton">
                         {isItemInCart(item._id) ? (

@@ -253,7 +253,7 @@ function OutdoorHording() {
                           <img src={rating} alt="rating" /> &nbsp; &nbsp;Size : {item.height}H , {item.width}W
                         </p>
                         <p className="person">
-                          <img src={spendcinema} alt="price" />&nbsp; &nbsp;Price : ₹{item.total}
+                          <img src={spendcinema} alt="price" />&nbsp; &nbsp;Price : ₹{item.total} / Per Month
                         </p>
                         <p className="addbutton">
                           {isItemInCart(item._id) ? (
