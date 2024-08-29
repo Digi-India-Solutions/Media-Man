@@ -102,7 +102,7 @@ function Cart() {
             type: item.type || "cinema",
           })),
         };
-        await axios.post("http://localhost:8000/api/cinemaCart", cinemaData);
+        await axios.post("https://api.mediaman.in/api/cinemaCart", cinemaData);
       }
 
       if (hoadingItems.length > 0) {
@@ -126,7 +126,7 @@ function Cart() {
             type: item.type || "outdoor",
           })),
         };
-        await axios.post("http://localhost:8000/api/hoadingcart", hoadingData);
+        await axios.post("https://api.mediaman.in/api/hoadingcart", hoadingData);
       }
 
       if (radioItems.length > 0) {
@@ -147,7 +147,7 @@ function Cart() {
           })),
         };
         console.log(radioData)
-        await axios.post("http://localhost:8000/api/radio-cart", radioData);
+        await axios.post("https://api.mediaman.in/api/radio-cart", radioData);
       }
 
       localStorage.removeItem("cartItems");
