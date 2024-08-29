@@ -46,7 +46,7 @@ exports.createContact = async (req, res) => {
     await transporter.sendMail({
       from: 'mediamanmd@gmail.com',
       to: 'mediamanmd@gmail.com',
-      subject: 'New Contact Submission',
+      subject: 'New Query Submission',
       html: `
        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
          <div style="text-align: center; padding: 20px;">
