@@ -59,6 +59,10 @@ const hoadingSchema = new mongoose.Schema({
         type: String,
         required: [true, "message is must require"]
     },
+    totalPrice:{
+        type: Number,
+        required: [true, "Total Price is must require"]
+    },
     hoadingcart: {
         type: [cartitem],
         required: [true, "Item is must required"]

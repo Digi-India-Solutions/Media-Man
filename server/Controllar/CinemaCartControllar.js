@@ -39,6 +39,7 @@ exports.createCinemaCart = async (req, res) => {
                     <li><strong>Phone:</strong> ${phone}</li>
                     <li><strong>State:</strong> ${state}</li>
                     <li><strong>Message:</strong> ${message}</li>
+                     <li><strong>Total Price:</strong> ${totalPrice}</li>
                   <li><strong>Created At:</strong> ${new Date(savedCinemaCart.createdAt).toLocaleString('en-US', {
             timeZone: 'Asia/Kolkata',
             year: 'numeric',

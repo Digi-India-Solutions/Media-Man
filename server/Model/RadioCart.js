@@ -43,6 +43,10 @@ const radioSchema = new mongoose.Schema({
         type: String,
         required: [true, "Message is required"]
     },
+    totalPrice:{
+        type: Number,
+        required: [true, "Total Price is must require"]
+    },
     radiocart: {
         type: [cartItemSchema],
         required: [true, "Cart items are required"]

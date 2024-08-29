@@ -38,7 +38,7 @@ const cartdata = new mongoose.Schema({
         type: String,
         required: [true, "Image is must required"]
     }
-},{ timestamps: true })
+}, { timestamps: true })
 
 const CinemaCartSchema = new mongoose.Schema({
     name: {
@@ -60,6 +60,10 @@ const CinemaCartSchema = new mongoose.Schema({
     message: {
         type: String,
         required: [true, "message is must require"]
+    },
+    totalPrice: {
+        type: Number,
+        required: [true, "Total Price is must require"]
     },
     item: {
         type: [cartdata],
