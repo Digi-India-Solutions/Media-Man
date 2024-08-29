@@ -22,16 +22,6 @@ function HomeSlider() {
 
   const navigate = useNavigate();
 
-  // const handleStateClick = (stateName) => {
-  //   const baseUrl = '/cinema';
-  //   const queryParams = new URLSearchParams({
-  //       state: stateName,
-  //       anotherParam: 'value', // Add more parameters if needed
-  //   }).toString();
-
-  //   navigate(`${baseUrl}?${queryParams}`);
-  // };
-
   useEffect(() => {
     const root = document.documentElement;
 

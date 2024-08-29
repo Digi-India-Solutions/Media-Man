@@ -3,6 +3,7 @@ import "../Contact/Contact.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import MetaTag from "../Meta/MetaTag";
 const Contact = () => {
   const [data, setData] = useState({
     name: "",
@@ -42,6 +43,13 @@ const Contact = () => {
     })
   },[])
   return (
+    <>
+    <MetaTag
+  title="Contact Us - Media Man"
+  description="Get in touch with Media Man for your media advertising needs. Fill out our contact form or reach us via email, phone, or social media."
+  keyword="contact, Media Man, media advertising, Cinema Advertising, Outdoor Advertising, Radio Advertisement, Bus Advertising, Airport Advertising"
+/>
+
     <div>
       <div className="contact">
         <div className="container">
@@ -154,6 +162,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

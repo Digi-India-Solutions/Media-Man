@@ -109,7 +109,8 @@ a {
   justify-content: center;
 
 }
-.mycsssmodal{
+
+.mycsssmodal {
   height: 500px;
 }
 
@@ -118,12 +119,52 @@ a {
   height: 400px;
 }
 
-@media (min-width: 768px){
+.allheadings {
+  font-size: 22px;
+}
+
+.filterButton {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 black;
+}
+
+.filterButton:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 black;
+}
+
+.filterButton:active {
+  transform: scale(0.9);
+}
+
+@media (min-width: 768px) {
+
+
   .modal-dialog {
     max-width: 30% !important;
   }
 }
+
 @media (max-width: 768px) {
+  .allheadings {
+    font-size: 18px;
+  }
+  .filterButton {
+    padding: 5px 10px;
+  }
   .heading {
     font-size: 26px;
     color: white;
@@ -155,9 +196,11 @@ a {
   .services {
     margin-top: 0;
   }
-  .modal.fade.show{
+
+  .modal.fade.show {
     padding: 2rem 1rem !important;
   }
+
   .modal-dialog {
     max-width: 100% !important;
   }

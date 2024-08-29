@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import './singleBlogPage.css';
+import MetaTag from '../Meta/MetaTag';
 
 const SingleBlogPage = () => {
   const [blog, setBlog] = useState(null);
@@ -40,6 +41,12 @@ const SingleBlogPage = () => {
 
   return (
     <>
+      <MetaTag
+        title={`Blog Post - ${blog?.blogName || 'Media Man Advertising'}`}
+        description={blog?.blogDescription?.slice(0, 150) + '...'}
+        keywords={`Media Man, blog, ${blog?.blogName || 'advertising'}, industry insights, blog post`}
+      />
+
       <section className="single-blog">
         <div className="container">
           <div className="row">
@@ -64,20 +71,20 @@ const SingleBlogPage = () => {
                 <h5 className="mb-1">Latest Blog</h5>
                 <hr className="mb-3 mt-2" style={{ width: '50px', borderTop: '2px solid red' }} />
 
-                  {allBlog && allBlog.length > 0 ? (
-                    allBlog.slice(0,10).map((blog, index) => (
-                      <Link to={`/singleblog/${blog._id}`} key={index} className="sin row mb-3">
-                        <div className="col-4">
-                          <img src={blog.image} alt={blog.blogName} style={{ height: '70px' }} className="img-fluid" />
-                        </div>
-                        <div className="col-8 d-flex flex-column ">
-                          <h6 className="mb-1">{blog.blogName}</h6>
-                        </div>
-                      </Link>
-                    ))
-                  ) : (
-                    <p>No more blogs available</p>
-                  )}
+                {allBlog && allBlog.length > 0 ? (
+                  allBlog.slice(0, 10).map((blog, index) => (
+                    <Link to={`/singleblog/${blog._id}`} key={index} className="sin row mb-3">
+                      <div className="col-4">
+                        <img src={blog.image} alt={blog.blogName} style={{ height: '70px' }} className="img-fluid" />
+                      </div>
+                      <div className="col-8 d-flex flex-column ">
+                        <h6 className="mb-1">{blog.blogName}</h6>
+                      </div>
+                    </Link>
+                  ))
+                ) : (
+                  <p>No more blogs available</p>
+                )}
 
               </div>
 

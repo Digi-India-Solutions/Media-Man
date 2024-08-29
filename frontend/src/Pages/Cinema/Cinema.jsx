@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import location from '../../Image/location.png';
 import pvr from '../../Image/PVR CINEMA.jpg'
 import Loader from "../../Component/Loader/Loader";
+import MetaTag from "../../Component/Meta/MetaTag";
 
 function Cinema() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -143,149 +144,155 @@ function Cinema() {
 
   return (
     <>
-    {loading ? <Loader/> : (
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-7" style={{ alignItems: "center" }}>
-            <div className="filter">
-              <h5 style={{ color: "red", textAlign: "start" }}>
-                <span style={{ color: "black" }}> For Cinema Advertising Do Add Cinema In Cart, By Location where You want to ADS.</span>
-              </h5>
-            </div>
-          </div>
-          <div className="col-md-5">
-            <div
-              onClick={() => setIsFilterVisible(!isFilterVisible)}
-              style={{ textAlign: "end", cursor: "pointer" }}
-            >
-              <p className="addbutton" style={{ display: "flex", justifyContent: "end" }}>
-                <button className="cssbuttons-io">
-                  <span>Filter</span>
-                </button>
-              </p>
-            </div>
-          </div>
+      <MetaTag
+        title="Cinema Advertising - Media Man"
+        description="Explore cinema advertising options with Media Man. Filter and view cinema locations, chains, states, and cities. Add your preferred cinema to the cart and manage your advertising needs effectively."
+        keyword="Cinema advertising, Media Man, cinema locations, cinema chains, advertising solutions"
+      />
 
-          {isFilterVisible && (
-            <div className="col-md-12">
-              <div className=" mb-3 row justify-center">
-                <div className="col-md col-4">
-                  <label htmlFor="">Cinema</label>
-                  <select
-                    className="form-select"
-                    aria-label="Cinema Chain select"
-                    value={selectedChain}
-                    onChange={(e) => setSelectedChain(e.target.value)}
-                  >
-                    <option value=""></option>
-                    {cinemaChains.map((chain, index) => (
-                      <option key={index} value={chain}>
-                        {chain}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="col-md col-4">
-                <label htmlFor="">State</label>
-                  <select
-                    className="form-select"
-                    aria-label="State select"
-                    value={selectedState}
-                    onChange={(e) => setSelectedState(e.target.value)}
-                  >
-                    <option value=""></option>
-                    {states.map((state, index) => (
-                      <option key={index} value={state}>
-                        {state}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="col-md col-4">
-                <label htmlFor="">City</label>
-                  <select
-                    id="citySelect"
-                    className="form-select"
-                    value={selectedCity}
-                    onChange={(e) => setSelectedCity(e.target.value)}
-                  >
-                    <option value=""></option>
-                    {cities.map((city, index) => (
-                      <option key={index} value={city}>
-                        {city}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {/* Clear Filters Button */}
-                <div className=" col-md col-12 mt-2 mt-md-0 text-center">
-                  <button className="cssbuttons-io mt-4" onClick={clearFilters}>
-                    <span>Clear Filters</span>
-                  </button>
-                </div>
+      {loading ? <Loader /> : (
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-7" style={{ alignItems: "center" }}>
+              <div className="filter">
+                <h1 className="allheadings">
+                  For Cinema Advertising Do Add Cinema In Cart, By Location where You want to ADS.
+                </h1>
               </div>
             </div>
-          )}
+            <div className="col-md-5">
+              <div
 
-          <hr style={{ margin: '5px' }} />
+                style={{ textAlign: "end" }}
+              >
+                <p className="addbutton" style={{ display: "flex", justifyContent: "end" }}>
+                  <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filterButton">
+                    <span>Filter &nbsp;<i class="bi bi-funnel"></i></span>
+                  </button>
+                </p>
+              </div>
+            </div>
 
-          {getPaginatedCinemas().map((item, index) => (
-            <div className="col-md-3 mb-4" key={index}>
-              <div className="cinema-card">
-                <img src={item.image} alt="Cinema" className="myiamge" />
-                <div className="">
-                  <h4>{truncateTitle(item.cinema)} {item.name}</h4>
-                  <div>
-                    <hr style={{ margin: '5px' }} />
-                    <p className="person">
-                      <img src={rating} alt="rating" /> &nbsp; &nbsp;Category: {item.category}
-                    </p>
-                    <p className="person">
-                      <img src={location} alt="location" /> &nbsp; &nbsp;State: {item.state}
-                    </p>
-                    <p className="person">
-                      <img src={location} alt="location" /> &nbsp; &nbsp;City: {item.city}
-                    </p>
-                    <p className="person">
-                      <img src={cinemascreen} alt="cinemascreen" /> &nbsp; &nbsp;Screen: {item.audi}
-                    </p>
-                    <p className="person">
-                      <img src={seatcinema} alt="seatcinema" /> &nbsp; &nbsp;Seats Available: {item.seatingCapacity}
-                    </p>
-                    <p className="person">
-                      <img src={spendcinema} alt="spendcinema" /> &nbsp; &nbsp;Price: {item.baseRate10SecWeek} /10sec
-                    </p>
-                    <p className="addbutton">
-                      {
-                        isItemInCart(item._id) ? (
-                          <button className="cssbuttons-io" disabled>
-                            <span>Already In Cart</span>
-                          </button>
-                        ) :
-                          <button className="cssbuttons-io" onClick={() => addToCart(item)}>
-                            <span>
-                              Add To Cart &nbsp;
-                              <i className="bi bi-cart4"></i>
-                            </span>
-                          </button>
-                      }
-                    </p>
+            {isFilterVisible && (
+              <div className="col-md-12">
+                <div className=" mb-3 row justify-center">
+                  <div className="col-md col-4">
+                    <label htmlFor="">Cinema</label>
+                    <select
+                      className="form-select"
+                      aria-label="Cinema Chain select"
+                      value={selectedChain}
+                      onChange={(e) => setSelectedChain(e.target.value)}
+                    >
+                      <option value=""></option>
+                      {cinemaChains.map((chain, index) => (
+                        <option key={index} value={chain}>
+                          {chain}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-md col-4">
+                    <label htmlFor="">State</label>
+                    <select
+                      className="form-select"
+                      aria-label="State select"
+                      value={selectedState}
+                      onChange={(e) => setSelectedState(e.target.value)}
+                    >
+                      <option value=""></option>
+                      {states.map((state, index) => (
+                        <option key={index} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-md col-4">
+                    <label htmlFor="">City</label>
+                    <select
+                      id="citySelect"
+                      className="form-select"
+                      value={selectedCity}
+                      onChange={(e) => setSelectedCity(e.target.value)}
+                    >
+                      <option value=""></option>
+                      {cities.map((city, index) => (
+                        <option key={index} value={city}>
+                          {city}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* Clear Filters Button */}
+                  <div className=" col-md col-12 mt-2 mt-md-0 text-center">
+                    <button className="filterButton" onClick={clearFilters}>
+                      <span>Clear Filters</span>
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-
-          <div className="text-center mt-4">
-            {getPaginatedCinemas().length < filteredCinemas.length && (
-              <button className="cssbuttons-io mb-5" onClick={loadMore}>
-                <span>Load More</span>
-              </button>
             )}
+
+            <hr style={{ margin: '5px' }} />
+
+            {getPaginatedCinemas().map((item, index) => (
+              <div className="col-md-3 mb-4" key={index}>
+                <div className="cinema-card">
+                  <img src={item.image} alt="Cinema" className="myiamge" />
+                  <div className="">
+                    <h4>{truncateTitle(item.cinema)} {item.name}</h4>
+                    <div>
+                      <hr style={{ margin: '5px' }} />
+                      <p className="person">
+                        <img src={rating} alt="rating" /> &nbsp; &nbsp;Category: {item.category}
+                      </p>
+                      <p className="person">
+                        <img src={location} alt="location" /> &nbsp; &nbsp;State: {item.state}
+                      </p>
+                      <p className="person">
+                        <img src={location} alt="location" /> &nbsp; &nbsp;City: {item.city}
+                      </p>
+                      <p className="person">
+                        <img src={cinemascreen} alt="cinemascreen" /> &nbsp; &nbsp;Screen: {item.audi}
+                      </p>
+                      <p className="person">
+                        <img src={seatcinema} alt="seatcinema" /> &nbsp; &nbsp;Seats Available: {item.seatingCapacity}
+                      </p>
+                      <p className="person">
+                        <img src={spendcinema} alt="spendcinema" /> &nbsp; &nbsp;Price: {item.baseRate10SecWeek} /10sec
+                      </p>
+                      <p className="addbutton">
+                        {
+                          isItemInCart(item._id) ? (
+                            <button className="cssbuttons-io" disabled>
+                              <span>Already In Cart</span>
+                            </button>
+                          ) :
+                            <button className="cssbuttons-io" onClick={() => addToCart(item)}>
+                              <span>
+                                Add To Cart &nbsp;
+                                <i className="bi bi-cart4"></i>
+                              </span>
+                            </button>
+                        }
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <div className="text-center mt-4">
+              {getPaginatedCinemas().length < filteredCinemas.length && (
+                <button className="filterButton" onClick={loadMore}>
+                  <span>Load More</span>  <i class="bi bi-arrow-clockwise"></i>
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   );
 }

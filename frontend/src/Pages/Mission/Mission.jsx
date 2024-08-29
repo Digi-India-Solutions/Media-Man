@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import mission from "../../Image/mission.jpg";
+import MetaTag from "../../Component/Meta/MetaTag";
 function Mission() {
   useEffect(()=>{
     window.scrollTo({
@@ -9,6 +10,12 @@ function Mission() {
   },[])
   return (
     <>
+    <MetaTag
+  title="Our Mission - Media Man"
+  description="Learn about Media Man's mission to empower brands through impactful storytelling and innovative, data-driven advertising solutions tailored for the diverse Indian audience."
+  keyword="Media Man mission, brand empowerment, storytelling, data-driven advertising, Indian audience"
+/>
+
       <div>
         <div className="container">
           <div className="mt-5 mb-3 text-center">

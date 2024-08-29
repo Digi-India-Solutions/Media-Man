@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import image from "../../Image/cinemabanner.jpg";
 import image1 from "../../Image/roadbanner.webp";
 import image2 from "../../Image/target.avif";
+import MetaTag from "../../Component/Meta/MetaTag";
 const Milestone = () => {
   useEffect(()=>{
     window.scrollTo({
@@ -11,6 +12,12 @@ const Milestone = () => {
   },[])
   return (
     <>
+    <MetaTag
+  title="Milestones - Media Man"
+  description="Discover recent milestones at Media Man Advertising. Learn about our successful campaigns, including cinema branding for Wai Wai Noodles, outdoor hoarding for Himalayan Builders, and targeted advertising for Liberty Shoes."
+  keyword="Advertising milestones, Media Man, cinema branding, outdoor hoarding, advertising success"
+/>
+
       <div>
         <div className="container pb-5">
           <div className="text-center mt-5">

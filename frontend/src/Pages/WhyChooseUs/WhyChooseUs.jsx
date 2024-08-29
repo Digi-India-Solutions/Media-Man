@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./whychoose.css";
+import MetaTag from "../../Component/Meta/MetaTag";
 function WhyChooseUs() {
   const whychoose = [
     {
@@ -45,14 +46,20 @@ Blockbuster: Premium charges of 50%-150% on rate cards, applicable for ads less 
     },
   ];
 
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo({
-      top:0,
-      behavior:"smooth"
+      top: 0,
+      behavior: "smooth"
     })
-  },[])
+  }, [])
   return (
     <>
+      <MetaTag
+        title="Why Choose Media Man Advertising"
+        description="Discover why Media Man Advertising stands out with its competitive media plans, extensive experience, and commitment to delivering impactful advertising solutions. Learn about the benefits and options of cinema advertising and how we help brands achieve their goals."
+        keyword="Media Man Advertising, cinema advertising, benefits of cinema ads, advertising options, advertising agency India, Media Man benefits"
+      />
+
       <div class="feat bg-gray pt-5 pb-5">
         <div class="container">
           <div class="row">
@@ -61,10 +68,10 @@ Blockbuster: Premium charges of 50%-150% on rate cards, applicable for ads less 
                 <span>Why Choose</span> Us?
               </h4>
               <p>
-              We are consistently providing various advertising services to a vast and diverse clientele; corporate, retail, education & media agencies. We offer the most competitive media plans and rates to all our clients. Since 2012, Mediaman Advertising  has been flawlessly doing what it was committed to do. From the smallest to the largest campaigns, our vision is always clear to give it our best. We have an expertise of 12+ years in advertising and we are associated with all the leading and renewed advertising platforms across India.
+                We are consistently providing various advertising services to a vast and diverse clientele; corporate, retail, education & media agencies. We offer the most competitive media plans and rates to all our clients. Since 2012, Mediaman Advertising  has been flawlessly doing what it was committed to do. From the smallest to the largest campaigns, our vision is always clear to give it our best. We have an expertise of 12+ years in advertising and we are associated with all the leading and renewed advertising platforms across India.
               </p>
               <p>
-              We are one of the leading multi-service agency with presence across India, we always focus on bringing brands to larger than life with perfect planning, strategic approach and our expertise to provide quality and great results. Being one of the oldest and trusted advertising agencies in India, Mediaman Advertising believes in delivering quality, loyalty and satisfaction, in the best form possible!
+                We are one of the leading multi-service agency with presence across India, we always focus on bringing brands to larger than life with perfect planning, strategic approach and our expertise to provide quality and great results. Being one of the oldest and trusted advertising agencies in India, Mediaman Advertising believes in delivering quality, loyalty and satisfaction, in the best form possible!
               </p>
             </div>
             {whychoose.map((item) => (
@@ -86,67 +93,6 @@ Blockbuster: Premium charges of 50%-150% on rate cards, applicable for ads less 
                 </div>
               </div>
             ))}
-            {/* <div class="col-lg-4 col-sm-6">
-              <div class="item">
-                <span class="icon feature_box_col_two">
-                  <i class="bi bi-anchor"></i>
-                </span>
-                <h6>Creative Design</h6>
-                <p>
-                  We are always creative and and always lisen our costomers and
-                  we mix these two things and make beast design.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-              <div class="item">
-                <span class="icon feature_box_col_three">
-                  <i class="bi bi-hourglass-half"></i>
-                </span>
-                <h6>24 x 7 User Support</h6>
-                <p>
-                  If our customer has any problem and any query we are always
-                  happy to help then.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-              <div class="item">
-                <span class="icon feature_box_col_four">
-                  <i class="bi bi-database"></i>
-                </span>
-                <h6>Business Growth</h6>
-                <p>
-                  Everyone wants to live on top of the mountain, but all the
-                  happiness and growth occurs while you're climbing it
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-              <div class="item">
-                <span class="icon feature_box_col_five">
-                  <i class="bi bi-upload"></i>
-                </span>
-                <h6>Market Strategy</h6>
-                <p>
-                  Holding back technology to preserve broken business models is
-                  like allowing blacksmiths to veto the internal combustion
-                  engine in order to protect their horseshoes.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-              <div class="item">
-                <span class="icon feature_box_col_six">
-                  <i class="bi bi-camera"></i>
-                </span>
-                <h6>Affordable cost</h6>
-                <p>
-                  Love is a special word, and I use it only when I mean it. You
-                  say the word too much and it becomes cheap.
-                </p>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

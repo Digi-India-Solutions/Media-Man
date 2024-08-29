@@ -5,6 +5,7 @@ import spendcinema from '../../Image/spending.png';
 import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../../Component/Loader/Loader";
+import MetaTag from "../../Component/Meta/MetaTag";
 
 function RadioAdvertisement() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -133,15 +134,21 @@ function RadioAdvertisement() {
 
   return (
     <>
+      <MetaTag
+        title="Media Man - Leading Advertising Solutions"
+        description="Media Man offers comprehensive advertising solutions including cinema, outdoor, and radio advertisements. Explore our services and get in touch for customized ad solutions."
+        keywords="advertising, cinema ads, outdoor ads, radio ads, Media Man"
+      />
+
       {fullloading ? <Loader /> : (
         <div style={{ borderBottom: "3px solid black" }}>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-md-6" style={{ alignItems: "center" }}>
+              <div className="col-md-6" style={{ display:'flex' , alignItems: "center" }}>
                 <div className="filter">
-                  <h3 style={{ color: "red", textAlign: "start" }}>
+                <h1 className="allheadings" style={{color:'red'}}>
                     Radio <span style={{ color: "black" }}>Advertisement</span>
-                  </h3>
+                  </h1>
                   <hr />
                 </div>
               </div>
@@ -154,8 +161,8 @@ function RadioAdvertisement() {
                     className="addbutton"
                     style={{ display: "flex", justifyContent: "end" }}
                   >
-                    <button className="cssbuttons-io">
-                      <span>Filter &nbsp; <i className="bi bi-cart4"></i></span>
+                    <button className="filterButton">
+                    <span>Filter &nbsp;<i class="bi bi-funnel"></i></span>
                     </button>
                   </p>
                 </div>
@@ -211,7 +218,7 @@ function RadioAdvertisement() {
                       )}
                       <div className="mt-3">
                         <button
-                          className="btn btn-secondary"
+                          className="filterButton"
                           onClick={handleClearFilters}
                         >
                           Clear Filters

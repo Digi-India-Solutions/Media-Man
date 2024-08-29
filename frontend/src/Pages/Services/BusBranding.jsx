@@ -15,7 +15,7 @@ import bus12 from "../../Image/bus5.jpg";
 import bus13 from "../../Image/bus6.jpg";
 import location from '../../Image/location.png';
 import spendcinema from '../../Image/spending.png';
-// import './BusBranding.css'; // Ensure you have a CSS file for styling
+import MetaTag from "../../Component/Meta/MetaTag";
 
 function BusBranding() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -42,24 +42,25 @@ function BusBranding() {
     { image: bus6 },
     { image: bus7 },
     { image: bus8 },
-    // { image: bus9 },
-    // { image: bus10 },
-    // { image: bus11 },
-    // { image: bus12 },
     { image: bus13 },
     { image: bus3 },
   ];
 
   return (
     <>
+    <MetaTag
+  title="Bus Branding - Media Man Advertising"
+  description="Discover Media Man's bus branding solutions featuring a variety of impactful advertising images. Our strategically placed ads on buses offer high visibility and effective brand promotion."
+  keyword="bus branding, Media Man Advertising, bus advertising, high visibility ads, brand promotion, advertising images, dynamic bus advertising"
+/>
       <div style={{ borderBottom: "3px solid black" }}>
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-6" style={{ alignItems: "center" }}>
               <div className="filter">
-                <h3 style={{ color: "red", textAlign: "start" }}>
+              <h1 className="allheadings" style={{color:'red'}}>
                   Bus <span style={{ color: "black" }}>Advertising</span>
-                </h3>
+                </h1>
                 <hr />
               </div>
             </div>

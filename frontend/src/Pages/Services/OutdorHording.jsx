@@ -6,6 +6,7 @@ import "../Cinema/cinema.css";
 import toast from "react-hot-toast";
 import location from '../../Image/location.png';
 import Loader from "../../Component/Loader/Loader";
+import MetaTag from "../../Component/Meta/MetaTag";
 
 function OutdoorHording() {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -141,25 +142,28 @@ function OutdoorHording() {
   };
   return (
     <>
+      <MetaTag
+        title="Outdoor Hording - Media Man Advertising"
+        description="Explore Media Man's outdoor hording advertising options. Browse through various outdoor media locations, view details on size, location, and pricing. Easily filter and add outdoor hording options to your cart for effective brand visibility."
+        keyword="outdoor hording, Media Man Advertising, outdoor advertising, hording options, brand visibility, filter outdoor hording, add to cart, advertising locations"
+      />
+
       {fullloading ? <Loader /> : (
         <div>
           <div className="container mt-5">
             <div className="row">
               <div className="col-md-6" style={{ alignItems: "center" }}>
                 <div className="filter">
-                  <h5 style={{ color: "red", textAlign: "start" }}>
-                    <span style={{ color: "black" }}> For Outdoor Hoading Advertising Do Add Outdoor Hoading In Cart, By Loaction where You want to ADS.</span>
-                  </h5>
+                  <h1 className="allheadings">
+                    <span> For Outdoor Hoading Advertising Do Add Outdoor Hoading In Cart, By Loaction where You want to ADS.</span>
+                  </h1>
                 </div>
               </div>
               <div className="col-md-6">
-                <div
-                  onClick={() => setIsFilterVisible(!isFilterVisible)}
-                  style={{ textAlign: "end", cursor: "pointer" }}
-                >
+                <div>
                   <p className="addbutton" style={{ display: "flex", justifyContent: "end" }}>
-                    <button className="cssbuttons-io">
-                      <span>Filter</span>
+                    <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filterButton">
+                      <span>Filter &nbsp;<i class="bi bi-funnel"></i></span>
                     </button>
                   </p>
                 </div>
@@ -215,8 +219,8 @@ function OutdoorHording() {
                         ))}
                       </select>
                     </div>
-                    <div className=" col-md col-12 mt-2 mt-md-0 text-center">
-                      <button className="cssbuttons-io mt-4" onClick={clearFilters}>
+                    <div className=" col-md col-12 mt-2 text-center">
+                      <button className="filterButton" onClick={clearFilters}>
                         <span>Clear Filters</span>
                       </button>
                     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./blog.css";
+import MetaTag from "../Meta/MetaTag";
 
 const BlogList = () => {
   const [data, setData] = useState([]);
@@ -34,6 +35,13 @@ const BlogList = () => {
   };
 
   return (
+    <>
+    <MetaTag
+  title="Blog - Media Man Advertising"
+  description="Explore the latest blog posts from Media Man Advertising. Stay updated with our insights, industry news, and updates on advertising trends and strategies."
+  keywords="Media Man, blog, advertising insights, industry news, advertising trends"
+/>
+
     <div className="container mt-5 mb-3">
       <h3 className="blog-heading">Blog</h3>
       <hr />
@@ -53,7 +61,7 @@ const BlogList = () => {
                 <h2>Blog Post {index + 1}</h2>
                 <p>{item.blogName}</p>
                 <Link to={`/singleblog/${item._id}`}>
-                <button className="cssbuttons-io">
+                <button className="filterButton" style={{color:'white'}}>
                     <span>
                       Read More &nbsp;
                       <i className="bi bi-arrow-right-circle"></i>
@@ -66,6 +74,7 @@ const BlogList = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

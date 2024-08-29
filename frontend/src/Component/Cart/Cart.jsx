@@ -5,6 +5,7 @@ import cart from "../../Image/shopping-cart.gif";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import MetaTag from "../Meta/MetaTag";
 
 function Cart() {
   useEffect(() => {
@@ -67,9 +68,6 @@ function Cart() {
       .toFixed(2);
   };
 
-
-
-
   const handleSubmit = async () => {
     if (!name || !email || !phone) {
       toast.error("Please fill out all required fields.");
@@ -90,6 +88,7 @@ function Cart() {
           phone,
           state,
           message,
+          totalPrice:calculateTotal(),
           item: cinemaItems.map(item => ({
             cinemaName: item.cinema || "",
             category: item.category || "",
@@ -112,6 +111,7 @@ function Cart() {
           phone,
           state,
           message,
+          totalPrice:calculateTotal(),
           hoadingcart: hoadingItems.map(item => ({
             media: item.media || "",
             state: item.state || "",
@@ -135,6 +135,7 @@ function Cart() {
           phone,
           state,
           message,
+          totalPrice:calculateTotal(),
           radiocart: radioItems.map(item => ({
             station: item.station || "",
             state: item.state || "",
@@ -160,6 +161,13 @@ function Cart() {
   };
 
   return (
+    <>
+    <MetaTag
+  title="Home - Media Man"
+  description="Welcome to Media Man, your one-stop destination for all media advertising needs. Explore our services for cinema, outdoor, and radio ads."
+  keyword="media advertising, cinema ads, outdoor advertising, radio ads, Media Man"
+/>
+
     <section className="cart-section">
       <div className="cart-container">
         <div className="container">
@@ -391,6 +399,7 @@ function Cart() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

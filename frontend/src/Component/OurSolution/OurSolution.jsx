@@ -4,19 +4,19 @@ import image1 from "../../Image/mall.png";
 import CinemaAdvertising from "../../Image/ourwork1.jpeg";
 import Outdoor from "../../Image/ourwork2.jpg";
 import airport from "../../Image/airport.jpg";
-import panIndia from "../../Image/panIndia.jpeg";
 import bus from "../../Image/bus.webp";
 import Radio from "../../Image/radio.jpeg";
 import "./solution.css";
 import { Link } from "react-router-dom";
+import MetaTag from "../Meta/MetaTag";
 function OurSolution() {
   const ourWork = [
-    { pic: CinemaAdvertising, title: "Cinema Advertising" ,to:"/cinema"},
-    { pic: Outdoor, title: "Outdoor Hordings" ,to:"/outdoor-hoardings"},
-    { pic: airport, title: "Airport Branding" ,to:"/airport-branding-advertisement" },
-    { pic: Radio, title: "Radio Advertising",to:"/radio-advertisement" },
-    { pic: bus, title: "Bus Branding",to:"/bus-branding" },
-   
+    { pic: CinemaAdvertising, title: "Cinema Advertising", to: "/cinema" },
+    { pic: Outdoor, title: "Outdoor Hordings", to: "/outdoor-hoardings" },
+    { pic: airport, title: "Airport Branding", to: "/airport-branding-advertisement" },
+    { pic: Radio, title: "Radio Advertising", to: "/radio-advertisement" },
+    { pic: bus, title: "Bus Branding", to: "/bus-branding" },
+
   ];
   const ourSolution = [
     {
@@ -34,6 +34,12 @@ function OurSolution() {
   ];
   return (
     <>
+      <MetaTag
+        title="Our Solutions - Media Man"
+        description="Explore Media Man's diverse advertising solutions including Cinema Advertising, Outdoor Hoardings, Airport Branding, Radio Advertising, and Bus Branding. Learn how our tailored solutions can enhance your brand's visibility and impact."
+        keyword="Media Man, advertising solutions, cinema advertising, outdoor hoardings, airport branding, radio advertising, bus branding, brand visibility, advertising services"
+      />
+
       <div className="services">
         <div className="container">
           <div className="serverHeading mt-3">
@@ -57,16 +63,16 @@ function OurSolution() {
                       <p className="para">{item.title}</p>
                     </div>
                   </div>
-                   <p className="addbutton mt-3 mb-0">
-                  <Link to={item.to}>
-                        <button class="cssbuttons-io">
-                          <span>
-                            Click To More &nbsp;
-                            {/* <i class="bi bi-cart4"></i> */}
-                          </span>
-                        </button>
-                  </Link>
-                      </p>
+                  <p className="addbutton mt-3 mb-0">
+                    <Link to={item.to}>
+                      <button className="filterButton">
+                        <span>
+                          Click To More &nbsp;
+                          {/* <i class="bi bi-cart4"></i> */}
+                        </span>
+                      </button>
+                    </Link>
+                  </p>
                 </div>
               </div>
             ))}
@@ -81,27 +87,6 @@ function OurSolution() {
 
       <div className="cinemaadvertisement"></div>
 
-      {/* <div>
-        <div className="container mt-5">
-        <div className="serverHeading mt-5">
-            <span>Our Solution</span>
-          </div>
-          <div className="row">
-            {ourSolution.map((item, index) => (
-              <div className="col-md-6 mb-4">
-                <div>
-                  <img
-                    src={item.picture}
-                    width={"100%"}
-                    alt="Our-solution-images"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div></div>
-        </div>
-      </div> */}
       <div className="under" style={{ backgroundColor: "#272727" }}>
         <div className="understanding">
           <h2 className="heading text-center">Understanding Client's Needs</h2>
@@ -116,35 +101,6 @@ function OurSolution() {
           </p>
         </div>
       </div>
-      {/* <section className="ourclients">
-        <div>
-          <div className="serverHeading mt-5">
-            <span>Our Clients</span>
-          </div>
-          <div className="clients">
-            <div className="container ourprojects">
-              <div className="projectslogo">
-                <img src={waiwai} width={"100%"} alt="" />
-              </div>
-              <div className="projectslogo">
-                <img src={liberity} width={"100%"} alt="" />
-              </div>
-              <div className="projectslogo">
-                <img src={jaguar} width={"100%"} alt="" />
-              </div>
-              <div className="projectslogo">
-                <img src={mercedes} width={"100%"} alt="" />
-              </div>
-              <div className="projectslogo">
-                <img src={piet} width={"100%"} alt="" />
-              </div>
-              <div className="projectslogo">
-                <img src={nysa} width={"100%"} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 }

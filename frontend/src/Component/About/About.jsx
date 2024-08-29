@@ -1,14 +1,21 @@
 import React, { useEffect } from "react";
 import advertise from "../../Image/advertise.png";
+import MetaTag from "../Meta/MetaTag";
 const About = () => {
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo({
-      top:0,
-      behavior:'smooth'
+      top: 0,
+      behavior: 'smooth'
     })
-  },[])
+  }, [])
   return (
     <>
+      <MetaTag
+        title="About Us - Media Man Advertising"
+        description="Learn about Media Man Advertising and our commitment to creating impactful advertising solutions since 2012. Discover our passion for storytelling and how we can help your brand capture attention and drive results."
+        keywords="Media Man, advertising, storytelling, impactful ads, about us"
+      />
+
       <div>
         <div className="container mt-5">
           <div className="row">

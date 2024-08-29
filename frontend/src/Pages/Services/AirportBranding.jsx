@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import airport1 from "../../Image/airport1.jpg";
-// import airport2 from "../../Image/airport2.jpg";
-// import airport3 from "../../Image/airport3.jpg";
-// import airport4 from "../../Image/airport4.jpg";
-// import airport5 from "../../Image/airport5.webp";
-// import airport6 from "../../Image/airport6.jpg";
+import MetaTag from "../../Component/Meta/MetaTag";
 function AirportBranding() {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -98,7 +93,7 @@ function AirportBranding() {
       behavior: "smooth",
     });
   }, []);
-  // const cinema = [
+
   //   {
   //     image: airport1,
   //     title: "Cinepolis Fun Republic Mall, Screen - 3, Andheri West",
@@ -142,98 +137,24 @@ function AirportBranding() {
   // ];
   return (
     <>
+    <MetaTag
+  title="Airport Branding - Media Man Advertising"
+  description="Explore Media Man's airport branding solutions with a range of dynamic advertising images. Our strategic placements in major airports ensure high visibility and impactful brand exposure."
+  keyword="airport branding, Media Man Advertising, airport advertising, brand exposure, advertising images, high visibility ads, dynamic airport advertising"
+/>
     {console.log(airportimages)}
       <div>
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-6" style={{ alignItems: "center" }}>
               <div className="filter">
-                <h3 style={{ color: "red", textAlign: "start" }}>
+              <h1 className="allheadings" style={{color:'red'}}>
                   Airport <span style={{ color: "black" }}>Advertising</span>
-                </h3>
+                </h1>
                 <hr />
               </div>
             </div>
-            {/* <div className="col-md-6">
-              <div
-                onClick={toggleFilter}
-                style={{ textAlign: "end", cursor: "pointer" }}
-              >
-              </div>
-
-              {isFilterVisible && (
-                <div className="col-md-12">
-                  <div className="filteration mb-3">
-                    <div>
-                      <label
-                        htmlFor="stateSelect"
-                        style={{ fontSize: "14px", color: "black" }}
-                        className="form-label"
-                      >
-                        Select State
-                      </label>
-                      <select className="form-select" aria-label="State select">
-                        <option selected>Select State</option>
-                        {states.map((state, index) => (
-                          <option key={index} value={state}>
-                            {state}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="citySelect"
-                        style={{ fontSize: "14px", color: "black" }}
-                        className="form-label"
-                      >
-                        Select City
-                      </label>
-                      <select id="citySelect" className="form-select">
-                        <option value="">Select a city</option>
-                        {indianCities.map((city, index) => (
-                          <option key={index} value={city}>
-                            {city}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="cinemaSelect"
-                        style={{ fontSize: "14px", color: "black" }}
-                        className="form-label"
-                      >
-                        Select Cinema
-                      </label>
-                      <select id="cinemaSelect" className="form-select">
-                        <option value="">Select cinema</option>
-                        {delhiCinemas.map((cinema, index) => (
-                          <option key={index} value={cinema}>
-                            {cinema}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div> */}
             <hr />
-            {/* {cinema.map((item) => (
-              <div className="col-md-3 mb-4">
-                <div className="cinema-card">
-                  <img src={item.image} alt="Cinema-image" />
-                  <div>
-                    <h4>{item.title}</h4>
-                    <hr />
-                    <p className="person">
-                      <i class="bi bi-tag-fill"></i> {item.spend}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))} */}
           </div>
         </div>
       </div>
