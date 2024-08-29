@@ -26,7 +26,7 @@ exports.createCinemaCart = async (req, res) => {
         const adminTemplate = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
             <div style="text-align: center; background-color: #343a40; padding: 10px;">
-                <img src="https://via.placeholder.com/150x50.png?text=Mediaman+Logo" alt="Mediaman Logo" style="max-width: 100%;">
+                <img src="https://mediaman.in/static/media/logo.94585481204bda4cb964.png" alt="Mediaman Logo" style="max-width: 100%;">
             </div>
             <div style="padding: 20px; background-color: #f8f9fa;">
                 <h2 style="color: #343a40;">New Cinema Cart Created</h2>

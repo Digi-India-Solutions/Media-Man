@@ -20,7 +20,7 @@ const cartItemSchema = new mongoose.Schema({
     image: {
         type: String,
     }
-});
+}, { timestamps: true });
 
 const radioSchema = new mongoose.Schema({
     name: {
