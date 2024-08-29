@@ -45,7 +45,17 @@ exports.createHoadingCart = async (req, res) => {
                     <li><strong>Phone:</strong> ${phone}</li>
                     <li><strong>State:</strong> ${state}</li>
                     <li><strong>Message:</strong> ${message}</li>
-                    <li><strong>Created At:</strong> ${new Date(savedHoadingCart.createdAt).toLocaleString()}</li>
+                  <li><strong>Created At:</strong> ${new Date(savedHoadingCart.createdAt).toLocaleString('en-US', {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        })}</li>
+
                 </ul>
                 <h3 style="color: #343a40;">Item(s) Details:</h3>
                 <ul style="color: #495057; list-style-type: none; padding: 0;">
@@ -56,7 +66,6 @@ exports.createHoadingCart = async (req, res) => {
                         <strong>City:</strong> ${i.city}<br/>
                         <strong>Size:</strong> ${i.height}H ${i.width}W<br/>
                         <strong>Price:</strong> ${i.amount}<br/>
-                        <strong>Created At:</strong> ${new Date(i.createdAt).toLocaleString()}
                     </li>`).join('')}
                 </ul>
                 <p style="color: #495057;">
