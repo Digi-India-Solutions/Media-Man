@@ -24,6 +24,7 @@ import Signup from "./Component/SignUp/Signup";
 import toast, { Toaster } from 'react-hot-toast';
 import PopupBox from "./Component/PopUpBox/PopupBox";
 import SingleBlogPage from "./Component/Blog/SingleBlogPage";
+import ThankYou from "./Component/ThankYou/ThankYou";
 const App = () => {
   return (
     <>
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
+          <Route path="/thanku" element={<ThankYou />} />
         </Routes>
         <Footer />
       </BrowserRouter>

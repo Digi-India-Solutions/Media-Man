@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./cart.css";
 import logo from "../../Image/logo.png";
 import cart from "../../Image/shopping-cart.gif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -22,6 +22,8 @@ function Cart() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+
+  const navigate = useNavigate()
   // Determine the type based on cart items
   const getCartType = () => {
     const types = cartItems.map(item => item.type);
@@ -149,7 +151,7 @@ function Cart() {
 
       localStorage.removeItem("cartItems");
       toast.success("Enquiry submitted successfully.");
-      window.location.href = '/cart';
+      navigate("/thanku")
     } catch (error) {
       console.error("Error submitting enquiry:", error);
       alert("Failed to submit enquiry. Please try again.");
