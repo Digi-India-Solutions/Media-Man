@@ -4,12 +4,13 @@ const nodemailer = require('nodemailer');
 exports.createCinemaCart = async (req, res) => {
     try {
         console.log(req.body)
-        const { name, email, phone, message, item, state } = req.body;
+        const { name, email, phone, message,totalPrice, item, state } = req.body;
         const newCinemaCart = new cinemaCart({
             name,
             email,
             phone,
             message,
+            totalPrice,
             item,
             state,
         });

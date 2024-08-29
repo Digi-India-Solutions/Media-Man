@@ -6,7 +6,7 @@ exports.createHoadingCart = async (req, res) => {
     try {
         console.log("i am hit ");
         console.log(req.body); // Debug log
-        const { name, email, phone, message, state, hoadingcart } = req.body;
+        const { name, email, phone, message, state,totalPrice, hoadingcart } = req.body;
 
         const newHoadingCart = new HoadingCart({
             name,
@@ -14,6 +14,7 @@ exports.createHoadingCart = async (req, res) => {
             phone,
             message,
             state,
+            totalPrice,
             hoadingcart, // Correct field name here
         });
 

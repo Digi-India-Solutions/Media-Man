@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer'); // Import Nodemailer
 const createRecord = async (req, res) => {
     try {
         console.log(req.body);
-        const { name, email, phone, state, message, radiocart } = req.body;
+        const { name, email, phone, state, message,totalPrice, radiocart } = req.body;
         const errorMessage = [];
 
         if (!name) errorMessage.push("Name is required");
@@ -23,6 +23,7 @@ const createRecord = async (req, res) => {
             phone,
             state,
             message,
+            totalPrice,
             radiocart
         });
 

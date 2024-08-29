@@ -68,6 +68,7 @@ function Cart() {
       .toFixed(2);
   };
 
+  const totalPrice = calculateTotal()
   const handleSubmit = async () => {
     if (!name || !email || !phone) {
       toast.error("Please fill out all required fields.");
@@ -88,7 +89,7 @@ function Cart() {
           phone,
           state,
           message,
-          totalPrice:calculateTotal(),
+          totalPrice:totalPrice,
           item: cinemaItems.map(item => ({
             cinemaName: item.cinema || "",
             category: item.category || "",
@@ -101,7 +102,7 @@ function Cart() {
             type: item.type || "cinema",
           })),
         };
-        await axios.post("https://api.mediaman.in/api/cinemaCart", cinemaData);
+        await axios.post("http://localhost:8000/api/cinemaCart", cinemaData);
       }
 
       if (hoadingItems.length > 0) {
@@ -111,7 +112,7 @@ function Cart() {
           phone,
           state,
           message,
-          totalPrice:calculateTotal(),
+          totalPrice:totalPrice,
           hoadingcart: hoadingItems.map(item => ({
             media: item.media || "",
             state: item.state || "",
@@ -125,7 +126,7 @@ function Cart() {
             type: item.type || "outdoor",
           })),
         };
-        await axios.post("https://api.mediaman.in/api/hoadingcart", hoadingData);
+        await axios.post("http://localhost:8000/api/hoadingcart", hoadingData);
       }
 
       if (radioItems.length > 0) {
@@ -135,7 +136,7 @@ function Cart() {
           phone,
           state,
           message,
-          totalPrice:calculateTotal(),
+          totalPrice:totalPrice,
           radiocart: radioItems.map(item => ({
             station: item.station || "",
             state: item.state || "",
@@ -146,7 +147,7 @@ function Cart() {
           })),
         };
         console.log(radioData)
-        await axios.post("https://api.mediaman.in/api/radio-cart", radioData);
+        await axios.post("http://localhost:8000/api/radio-cart", radioData);
       }
 
       localStorage.removeItem("cartItems");
