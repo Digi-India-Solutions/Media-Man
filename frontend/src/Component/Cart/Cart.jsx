@@ -48,7 +48,7 @@ function Cart() {
     return cartItems
       .reduce((total, item) => {
         let price = 0;
-  
+
         if (item.type === "cinema") {
           price = parseFloat((item.baseRate10SecWeek || "0").toString().replace(/[^\d.-]/g, "")) || 0;
         } else if (item.type === "outdoor") {
@@ -56,16 +56,16 @@ function Cart() {
         } else if (item.type === "radio") {
           price = parseFloat((item.rate || "0").toString().replace(/[^\d.-]/g, "")) || 0;
         }
-  
+
         const quantity = item.quantity || 1;
         const itemTotal = price * quantity;
         const itemTotalWithGST = itemTotal + itemTotal * 0.18;
-  
+
         return total + itemTotalWithGST;
       }, 0)
       .toFixed(2);
   };
-  
+
 
 
 
@@ -368,18 +368,18 @@ function Cart() {
                     <div className="modal-footer">
                       <button
                         type="button"
-                        className="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        type="button"
                         className="btn btn-primary"
                         onClick={handleSubmit}
                         disabled={loading}
                       >
                         {loading ? "Submitting..." : "Submit"}
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
                       </button>
                     </div>
                   </div>

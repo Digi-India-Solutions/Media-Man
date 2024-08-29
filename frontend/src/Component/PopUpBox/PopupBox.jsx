@@ -155,19 +155,19 @@ const PopupBox = () => {
                             <div className="modal-footer">
                                 <button
                                     type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                    onClick={handleCloseModal}
-                                >
-                                    Close
-                                </button>
-                                <button
-                                    type="button"
                                     className="btn btn-primary"
                                     onClick={handleSubmit}
                                     disabled={loading}
                                 >
                                     {loading ? "Submitting..." : "Submit"}
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                    onClick={handleCloseModal}
+                                >
+                                    Close
                                 </button>
                             </div>
                         </div>
