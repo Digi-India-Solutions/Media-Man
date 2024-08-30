@@ -322,7 +322,7 @@ function Cart() {
                       <br /><br />
                      <strong> What Are the Cinema Advertising Options?</strong>
                       <br />
-                      <strong>1. Slide Advertising:</strong> This involves image ads, with or without audio. Booking requires a 1-Week lead time.
+                      <strong>1. Slide Advertising:</strong> This involves image ads, with or without audio. Booking requires a Week lead time.
                       <br />
                       <strong>2. Video Advertising:</strong> Requires CBFC approval and conversion to J2K format. After approval, ads are shown on selected screens. The lead time is 7 working days.
                       <br /><br />
