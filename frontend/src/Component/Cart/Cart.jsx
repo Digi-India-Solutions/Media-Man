@@ -319,16 +319,16 @@ function Cart() {
                       <strong>How Does Cinema Advertising Work?</strong>
                       <br />
                       Cinema advertising includes both Onscreen and Offscreen options. Ads can run either before the movie starts or during the interval. Rates are consistent for both pre-movie and interval ads.
-                      <br />
+                      <br /><br />
                      <strong> What Are the Cinema Advertising Options?</strong>
                       <br />
-                      <strong>1. Slide Advertising:</strong> This involves image ads, with or without audio. Booking requires a 1-day lead time.
+                      <strong>1. Slide Advertising:</strong> This involves image ads, with or without audio. Booking requires a 1-Week lead time.
                       <br />
                       <strong>2. Video Advertising:</strong> Requires CBFC approval and conversion to J2K format. After approval, ads are shown on selected screens. The lead time is 7 working days.
-                      <br />
+                      <br /><br />
                       <strong>3. For Mega Blockbuster Movies:</strong> Premiums apply to all multiplex screens at 100%-200% of the rate card. <br />
                        Premiums are for ROs under 5 weeks; the first week of campaigns with ROs of 5 weeks does not attract a premium.
-                      <br />
+                      <br /><br />
                       <strong>4. For Blockbuster Movies:</strong> Premiums apply at 50%-150% of the rate card. <br />
                       Premiums are for ROs under 4 weeks; the first week of campaigns with ROs of 4 weeks does not attract a premium.
                     </div></> : null
