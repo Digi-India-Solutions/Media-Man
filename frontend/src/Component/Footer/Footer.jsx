@@ -68,7 +68,7 @@ const Footer = () => {
                 <ul id="menu-quick-links" class="footer-menu-list">
                   <li class="menu-item menu-item-type-custom menu-item-object-custom">
                     <Link rel="noopener noreferrer" to={"/vision"}>
-                      <i class="bi bi-chevron-double-right"></i> Vision 
+                      <i class="bi bi-chevron-double-right"></i> Vision
                     </Link>
                   </li>
                   <li class="menu-item menu-item-type-custom menu-item-object-custom">
@@ -91,17 +91,13 @@ const Footer = () => {
             </div>
             <div class="footer-content-column">
               <div class="footer-call-to-action">
-                <h2 class="footer-call-to-action-title"> Let's Chat</h2>
-                <p class="footer-call-to-action-description">
-                  Have a support question?
+                <h2 class="footer-call-to-action-title"> Registered Address:</h2>
+                <p class="footer-call-to-action-description text-uppercase">
+                  Near Jind Chungi, Barwala, Hisar, Haryana, 125121 <br />
                 </p>
-                <Link
-                  class="footer-call-to-action-button button"
-                  to="/contact"
-                  target="_self"
-                >
-                  Get in Touch
-                </Link>
+                <h2 class="footer-call-to-action-title">Branch Address:</h2>
+                <p> SCO 93,3rd FLOOR SECTOR 7 KARNAL HARYANA</p>
+
               </div>
               <div class="footer-call-to-action">
                 <h2 class="footer-call-to-action-title"> You Call Us</h2>
@@ -111,10 +107,17 @@ const Footer = () => {
                     to="tel:0124-64XXXX"
                     target="_self"
                   >
-                    +91 9871169588 +91 9599245542
+                    +91 97296 06097 <br /> +91 9053873989
                   </Link>
                 </p>
               </div>
+              <Link
+                class="footer-call-to-action-button button mt-2"
+                to="/contact"
+                target="_self"
+              >
+                Get in Touch
+              </Link>
             </div>
             <div class="footer-social-links">
               <svg
@@ -156,11 +159,9 @@ const Footer = () => {
           <div class="footer-copyright">
             <div class="footer-copyright-wrapper">
               <p class="footer-copyright-text">
-                {/* <Link class="footer-copyright-link" to="#" target="_self">
-                  
-                  ©2024. | Designed By: DIGI India Solution. | All rights
-                  reserved.
-                </Link> */}
+                <a class="footer-copyright-link" href="https://digiindiasolutions.com/" target="_blank">
+                © Copyright 2024, Mediaman. Designed by DIGI India Solutions
+                </a>
               </p>
             </div>
           </div>
