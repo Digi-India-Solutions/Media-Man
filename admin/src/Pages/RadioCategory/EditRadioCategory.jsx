@@ -49,12 +49,12 @@ const EditRadioCategory = () => {
                 formData.append("radioimage", data.radioimage);
             }
             const res = await axios.put(`https://api.mediaman.in/api/radioCategory/${_id}`, formData);
-            if(res.status===200){
+            if (res.status === 200) {
                 toast.success("Category updated successfully!");
                 navigate("/all-radiosname")
             }
         } catch (error) {
-            console.log("My error",error);
+            console.log("My error", error);
             toast.error("Failed to update category.");
         } finally {
             setBtnLoading(false);

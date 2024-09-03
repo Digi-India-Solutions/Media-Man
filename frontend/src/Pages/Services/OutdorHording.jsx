@@ -240,7 +240,7 @@ function OutdoorHording() {
                     <div className="cinema-card">
                       <img src={item.image} alt="Outdoor Hording" />
                       <div>
-                        <h4>{truncateTitle(item.media)}</h4>
+                        <h4>{truncateTitle(item.city)}</h4>
                         <h6>{truncateTitle(item.location)}</h6>
                         <hr style={{ margin: '5px' }} />
                         <p className="person">
