@@ -5,6 +5,7 @@ import logo from "../../Image/logo.png";
 const Footer = () => {
   return (
     <>
+      <a href="https://api.whatsapp.com/send?phone=919729606097" target="_blank" class="whatsapp_float"><i class="fa-brands fa-whatsapp whatsapp-icon"></i></a>
       <div class="pg-footer">
         <footer class="footer">
           <div class="row footer-content">
@@ -150,7 +151,7 @@ const Footer = () => {
               </Link>
               <Link
                 class="footer-social-link github"
-                to="https://api.whatsapp.com/send?phone=+919871169588 "
+                to="https://api.whatsapp.com/send?phone=+919729606097 "
               >
                 <i className="bi bi-whatsapp"></i>
               </Link>
