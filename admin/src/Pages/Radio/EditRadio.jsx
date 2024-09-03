@@ -4,24 +4,25 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const EditRadioCategory = () => {
+const EditRadio = () => {
     const [btnLoading, setBtnLoading] = useState(false);
     const [data, setData] = useState({
-        radiocategoryName: "",
-        radioimage: null
+        categoryName: "",
+        image: null
     });
     const { _id } = useParams();
+
     const navigate = useNavigate()
 
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const res = await axios.get(`https://api.mediaman.in/api/radioCategory/${_id}`);
+                const res = await axios.get(`https://api.mediaman.in/api/create-cinema/${_id}`);
                 console.log(res)
                 const category = res.data.data;
                 setData({
-                    radiocategoryName: category.radiocategoryName,
-                    radioimage: null,
+                    categoryName: category.categoryName,
+                    image: null,
                 });
             } catch (error) {
                 console.log(error);
@@ -44,17 +45,17 @@ const EditRadioCategory = () => {
         setBtnLoading(true);
         try {
             const formData = new FormData();
-            formData.append("radiocategoryName", data.radiocategoryName);
-            if (data.radioimage) {
-                formData.append("radioimage", data.radioimage);
+            formData.append("categoryName", data.categoryName);
+            if (data.image) {
+                formData.append("image", data.image);
             }
-            const res = await axios.put(`https://api.mediaman.in/api/radioCategory/${_id}`, formData);
+            const res = await axios.put(`https://api.mediaman.in/api/create-cinema/${_id}`, formData);
             if(res.status===200){
                 toast.success("Category updated successfully!");
-                navigate("/all-radiosname")
+                navigate("/all-category")
             }
         } catch (error) {
-            console.log("My error",error);
+            console.log(error);
             toast.error("Failed to update category.");
         } finally {
             setBtnLoading(false);
@@ -69,30 +70,30 @@ const EditRadioCategory = () => {
                     <h4>Edit Category</h4>
                 </div>
                 <div className="links">
-                    <Link to="/all-radiosname" className="add-new">Back <i className="fa-regular fa-circle-left"></i></Link>
+                    <Link to="/all-category" className="add-new">Back <i className="fa-regular fa-circle-left"></i></Link>
                 </div>
             </div>
 
             <div className="d-form">
                 <form className="row g-3" onSubmit={handleSubmit}>
                     <div className="col-md-6">
-                        <label htmlFor="radiocategoryName" className="form-label">Category Name</label>
+                        <label htmlFor="categoryName" className="form-label">Category Name</label>
                         <input
                             type="text"
-                            name="radiocategoryName"
+                            name="categoryName"
                             className="form-control"
-                            id="radiocategoryName"
+                            id="categoryName"
                             onChange={handleChange}
-                            value={data.radiocategoryName}
+                            value={data.categoryName}
                         />
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="categoryradioimage" className="form-label">Category radioimage</label>
+                        <label htmlFor="categoryImage" className="form-label">Category Image</label>
                         <input
                             type="file"
-                            name="radioimage"
+                            name="image"
                             className="form-control"
-                            id="categoryradioimage"
+                            id="categoryImage"
                             onChange={handleChange}
                         />
                     </div>
@@ -111,4 +112,4 @@ const EditRadioCategory = () => {
     );
 };
 
-export default EditRadioCategory;
+export default EditRadio;

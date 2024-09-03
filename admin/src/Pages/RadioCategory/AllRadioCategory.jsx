@@ -78,7 +78,7 @@ const AllRadioCategory = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>{item.radiocategoryName}</td>
                                     <td><img src={item.radioimage} /></td>
-                                    <td><Link className="bt edit" to={`/edit-category/${item._id}`}>Edit <i class="fa-solid fa-pen-to-square"></i></Link></td>
+                                    <td><Link className="bt edit" to={`/edit-radiosname/${item._id}`}>Edit <i class="fa-solid fa-pen-to-square"></i></Link></td>
                                     <td><Link className="bt delete" onClick={() => deleteCinema(item._id)}>Delete <i class="fa-solid fa-trash"></i></Link></td>
                                 </tr>
                             )

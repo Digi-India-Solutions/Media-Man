@@ -99,7 +99,9 @@ const getSingleRadio = async (req, res) => {
 
 const updateRadio = async (req, res) => {
     try {
+        console.log("I am hit")
         const data = await Radiocategory.findOne({ _id: req.params._id });
+        console.log(data)
         if (!data) {
             return res.status(404).json({
                 success: false,
@@ -108,7 +110,6 @@ const updateRadio = async (req, res) => {
         }
 
         data.radiocategoryName = req.body.radiocategoryName ?? data.radiocategoryName;
-
         if (req.file) {
             if (data.radioimage) {
                 const oldimage = data.radioimage.split("/").pop().split(".")[0];
