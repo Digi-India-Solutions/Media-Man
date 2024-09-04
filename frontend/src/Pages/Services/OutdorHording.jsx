@@ -24,6 +24,11 @@ function OutdoorHording() {
   // State for available cities based on the selected state
   const [cities, setCities] = useState([]);
 
+
+  // State variables for pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
+
   const getApiData = async () => {
     try {
       const res = await axios.get("https://api.mediaman.in/api/hoading");
@@ -134,6 +139,13 @@ function OutdoorHording() {
     setSelectedMedia('');
   };
 
+  const handleLoadMore = () => {
+    setCurrentPage(prevPage => prevPage + 1);
+  };
+
+  // Paginate the filtered data
+  const paginatedData = filteredData.slice(0, currentPage * itemsPerPage);
+
   return (
     <>
       <MetaTag
@@ -231,7 +243,7 @@ function OutdoorHording() {
                   </div>
                 </div>
               ) : (
-                filteredData.map((item, index) => (
+                paginatedData.map((item, index) => (
                   <div className="col-md-3 mb-4" key={index}>
                     <div className="cinema-card">
                       <img src={item.image} alt="Outdoor Hording" />
@@ -269,6 +281,13 @@ function OutdoorHording() {
                     </div>
                   </div>
                 ))
+              )}
+              {filteredData.length > paginatedData.length && (
+                <div className="text-center mt-4">
+                  <button className="filterButton" onClick={handleLoadMore}>
+                  <span>Load More</span>  <i class="bi bi-arrow-clockwise"></i>
+                  </button>
+                </div>
               )}
             </div>
           </div>

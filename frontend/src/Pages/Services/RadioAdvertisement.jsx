@@ -20,6 +20,11 @@ function RadioAdvertisement() {
   const [cartCount, setCartCount] = useState(0);
   const [fullloading, setFullLoading] = useState(true); // Add loading state
 
+
+    // State variables for pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 20;
+
   useEffect(() => {
     getApiData();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -140,6 +145,12 @@ function RadioAdvertisement() {
     const words = title.split(' ');
     return words.length > 4 ? `${words.slice(0, 5).join(' ')}...` : title;
   };
+  const handleLoadMore = () => {
+    setCurrentPage(prevPage => prevPage + 1);
+  };
+
+  // Paginate the filtered data
+  const paginatedData = filteredData.slice(0, currentPage * itemsPerPage);
 
   return (
     <>
@@ -260,7 +271,7 @@ function RadioAdvertisement() {
             </div>
 
             <div className="row">
-              {filteredData.map((item) => (
+              {paginatedData.map((item) => (
                 <div className="col-md-3 mb-4" key={item._id}>
                   <div className="cinema-card">
                     <img src={item.image} alt="Radio-image" />
@@ -294,6 +305,13 @@ function RadioAdvertisement() {
                   </div>
                 </div>
               ))}
+              {filteredData.length > paginatedData.length && (
+                <div className="text-center mt-4">
+                  <button className="filterButton" onClick={handleLoadMore}>
+                    <span>Load More</span>  <i class="bi bi-arrow-clockwise"></i>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
