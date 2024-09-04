@@ -12,8 +12,10 @@ function RadioAdvertisement() {
   const [data, setData] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
+  const [station, setStation] = useState([]);
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
+  const [selectedStation, setSelectedStation] = useState(''); // Add this state
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [fullloading, setFullLoading] = useState(true); // Add loading state
@@ -41,6 +43,8 @@ function RadioAdvertisement() {
         setStates(uniqueStates);
         const uniqueCities = [...new Set(fetchedData.map(item => item.city))];
         setCities(uniqueCities);
+        const uniqueStation = [...new Set(fetchedData.map(item => item.station))];
+        setStation(uniqueStation);
         setFullLoading(false);
       }
     } catch (error) {
@@ -68,9 +72,14 @@ function RadioAdvertisement() {
     setSelectedCity(e.target.value);
   };
 
+  const handleStationChange = (e) => {
+    setSelectedStation(e.target.value); // Add this function
+  };
+
   const handleClearFilters = () => {
     setSelectedState('');
     setSelectedCity('');
+    setSelectedStation(''); // Clear station filter
     const allCities = [...new Set(data.map(item => item.city))];
     setCities(allCities);
   };
@@ -115,7 +124,6 @@ function RadioAdvertisement() {
     localStorage.setItem('cartCount', newCartCount);
   };
 
-
   const isItemInCart = (itemId) => {
     return cartItems.some(cartItem => cartItem._id === itemId);
   };
@@ -123,7 +131,8 @@ function RadioAdvertisement() {
   const filteredData = data.filter(item => {
     const isStateMatch = !selectedState || item.state === selectedState;
     const isCityMatch = !selectedCity || item.city === selectedCity;
-    return isStateMatch && isCityMatch;
+    const isStationMatch = !selectedStation || item.station === selectedStation; // Use selectedStation for filtering
+    return isStateMatch && isCityMatch && isStationMatch;
   });
 
   const truncateTitle = (title) => {
@@ -144,9 +153,9 @@ function RadioAdvertisement() {
         <div style={{ borderBottom: "3px solid black" }}>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-md-6" style={{ display:'flex' , alignItems: "center" }}>
+              <div className="col-md-6" style={{ display: 'flex', alignItems: "center" }}>
                 <div className="filter">
-                <h1 className="allheadings" style={{color:'red'}}>
+                  <h1 className="allheadings" style={{ color: 'red' }}>
                     Radio <span style={{ color: "black" }}>Advertisement</span>
                   </h1>
                   <hr />
@@ -162,7 +171,7 @@ function RadioAdvertisement() {
                     style={{ display: "flex", justifyContent: "end" }}
                   >
                     <button className="filterButton">
-                    <span>Filter &nbsp;<i class="bi bi-funnel"></i></span>
+                      <span>Filter &nbsp;<i className="bi bi-funnel"></i></span>
                     </button>
                   </p>
                 </div>
@@ -192,33 +201,53 @@ function RadioAdvertisement() {
                           ))}
                         </select>
                       </div>
-                      {selectedState && (
-                        <div>
-                          <label
-                            htmlFor="citySelect"
-                            style={{ fontSize: "14px", color: "black" }}
-                            className="form-label"
-                          >
-                            Select City
-                          </label>
-                          <select
-                            id="citySelect"
-                            className="form-select"
-                            value={selectedCity}
-                            onChange={handleCityChange}
-                          >
-                            <option value=""></option>
-                            {cities.map((city, index) => (
-                              <option key={index} value={city}>
-                                {city}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      )}
-                      <div className="mt-3">
+                      <div>
+                        <label
+                          htmlFor="citySelect"
+                          style={{ fontSize: "14px", color: "black" }}
+                          className="form-label"
+                        >
+                          Select City
+                        </label>
+                        <select
+                          id="citySelect"
+                          className="form-select"
+                          value={selectedCity}
+                          onChange={handleCityChange}
+                        >
+                          <option value=""></option>
+                          {cities.map((city, index) => (
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="stationSelect"
+                          style={{ fontSize: "14px", color: "black" }}
+                          className="form-label"
+                        >
+                          Select Station
+                        </label>
+                        <select
+                          id="stationSelect"
+                          className="form-select"
+                          value={selectedStation}
+                          onChange={handleStationChange}
+                        >
+                          <option value=""></option>
+                          {station.map((stationName, index) => (
+                            <option key={index} value={stationName}>
+                              {stationName}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
                         <button
-                          className="filterButton"
+                          className="btn btn-danger"
                           onClick={handleClearFilters}
                         >
                           Clear Filters
@@ -228,7 +257,9 @@ function RadioAdvertisement() {
                   </div>
                 )}
               </div>
-              <hr />
+            </div>
+
+            <div className="row">
               {filteredData.map((item) => (
                 <div className="col-md-3 mb-4" key={item._id}>
                   <div className="cinema-card">

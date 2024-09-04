@@ -176,22 +176,7 @@ function Cinema() {
             {isFilterVisible && (
               <div className="col-md-12">
                 <div className=" mb-3 row justify-center">
-                  <div className="col-md col-4">
-                    <label htmlFor="">Cinema</label>
-                    <select
-                      className="form-select"
-                      aria-label="Cinema Chain select"
-                      value={selectedChain}
-                      onChange={(e) => setSelectedChain(e.target.value)}
-                    >
-                      <option value=""></option>
-                      {cinemaChains.map((chain, index) => (
-                        <option key={index} value={chain}>
-                          {chain}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+
                   <div className="col-md col-4">
                     <label htmlFor="">State</label>
                     <select
@@ -220,6 +205,22 @@ function Cinema() {
                       {cities.map((city, index) => (
                         <option key={index} value={city}>
                           {city}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-md col-4">
+                    <label htmlFor="">Cinema</label>
+                    <select
+                      className="form-select"
+                      aria-label="Cinema Chain select"
+                      value={selectedChain}
+                      onChange={(e) => setSelectedChain(e.target.value)}
+                    >
+                      <option value=""></option>
+                      {cinemaChains.map((chain, index) => (
+                        <option key={index} value={chain}>
+                          {chain}
                         </option>
                       ))}
                     </select>

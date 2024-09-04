@@ -15,43 +15,47 @@ function OutdoorHording() {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [fullloading, setFullLoading] = useState(true); // Add loading state
 
   // State variables for filters
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedMedia, setSelectedMedia] = useState("");
 
+  // State for available cities based on the selected state
+  const [cities, setCities] = useState([]);
+
   const getApiData = async () => {
     try {
       const res = await axios.get("https://api.mediaman.in/api/hoading");
       if (res.status === 200) {
-        setData(res.data.data.reverse());
-        setFilteredData(res.data.data.reverse());
-        setLoading(false);
-        setFullLoading(false);
+        const reversedData = res.data.data.reverse();
+        setData(reversedData);
+        setFilteredData(reversedData);
+
+        // Initialize the cities list
+        const uniqueStates = [...new Set(reversedData.map(item => item.state))];
+        const stateCitiesMap = uniqueStates.reduce((acc, state) => {
+          acc[state] = [...new Set(reversedData.filter(item => item.state === state).map(item => item.city))];
+          return acc;
+        }, {});
+        setCities(stateCitiesMap);
       }
     } catch (error) {
-      console.log(error);
+      console.error("Failed to fetch data:", error);
+    } finally {
       setLoading(false);
-      setFullLoading(false);
     }
   };
 
   useEffect(() => {
     getApiData();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     setCartItems(storedCartItems);
 
     const storedCartCount = localStorage.getItem('cartCount');
-    if (storedCartCount) {
-      setCartCount(parseInt(storedCartCount, 10));
-    }
+    setCartCount(storedCartCount ? parseInt(storedCartCount, 10) : 0);
   }, []);
 
   useEffect(() => {
@@ -61,11 +65,9 @@ function OutdoorHording() {
     if (selectedState) {
       filtered = filtered.filter(item => item.state === selectedState);
     }
-
     if (selectedCity) {
       filtered = filtered.filter(item => item.city === selectedCity);
     }
-
     if (selectedMedia) {
       filtered = filtered.filter(item => item.media === selectedMedia);
     }
@@ -74,27 +76,29 @@ function OutdoorHording() {
     setLoading(false);
   }, [selectedState, selectedCity, selectedMedia, data]);
 
+  // Update cities when state changes
+  useEffect(() => {
+    setSelectedCity(''); // Reset city selection when state changes
+  }, [selectedState]);
+
   const addToCart = (item) => {
     const updatedCartItems = [...cartItems];
     const existingCinemaItem = updatedCartItems.find(cartItem => cartItem.type === 'cinema');
     const existingRadioItem = updatedCartItems.find(cartItem => cartItem.type === 'radio');
     const existingOutdoorItem = updatedCartItems.find(cartItem => cartItem.type === 'outdoor');
 
-    // Prevent adding an outdoor product if a cinema or radio product is already in the cart
     if (item.type === 'outdoor' && (existingCinemaItem || existingRadioItem)) {
-      toast.error('You cannot add Outdoor Hording products while Cinema or Radio products are in the cart.');
+      toast.error('Cannot add Outdoor Hording with Cinema or Radio items in the cart.');
       return;
     }
 
-    // Prevent adding a cinema product if an outdoor product is already in the cart
     if (item.type === 'cinema' && existingOutdoorItem) {
-      toast.error('You cannot add Cinema products while Outdoor Hording products are in the cart.');
+      toast.error('Cannot add Cinema products with Outdoor Hording in the cart.');
       return;
     }
 
-    // Prevent adding a radio product if an outdoor product is already in the cart
     if (item.type === 'radio' && existingOutdoorItem) {
-      toast.error('You cannot add Radio products while Outdoor Hording products are in the cart.');
+      toast.error('Cannot add Radio products with Outdoor Hording in the cart.');
       return;
     }
 
@@ -114,65 +118,87 @@ function OutdoorHording() {
     const newCartCount = updatedCartItems.reduce((acc, cur) => acc + cur.quantity, 0);
     setCartCount(newCartCount);
     localStorage.setItem('cartCount', newCartCount);
-
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 1000);
   };
 
-  const isItemInCart = (itemId) => {
-    return cartItems.some(cartItem => cartItem._id === itemId);
-  };
+  const isItemInCart = (itemId) => cartItems.some(cartItem => cartItem._id === itemId);
 
   const truncateTitle = (title) => {
-    if (!title) {
-      return '';
-    }
+    if (!title) return '';
     const words = title.split(' ');
-    if (words.length > 20) {
-      return `${words.slice(0, 5).join(' ')}...`;
-    }
-    return title;
+    return words.length > 20 ? `${words.slice(0, 5).join(' ')}...` : title;
   };
 
   const clearFilters = () => {
-    setSelectedMedia('');
     setSelectedState('');
     setSelectedCity('');
+    setSelectedMedia('');
   };
+
   return (
     <>
       <MetaTag
         title="Outdoor Hording - Media Man Advertising"
-        description="Explore Media Man's outdoor hording advertising options. Browse through various outdoor media locations, view details on size, location, and pricing. Easily filter and add outdoor hording options to your cart for effective brand visibility."
+        description="Explore Media Man's outdoor hording advertising options. Browse various outdoor media locations, view details on size, location, and pricing. Easily filter and add outdoor hording options to your cart for effective brand visibility."
         keyword="outdoor hording, Media Man Advertising, outdoor advertising, hording options, brand visibility, filter outdoor hording, add to cart, advertising locations"
       />
 
-      {fullloading ? <Loader /> : (
+      {loading ? <Loader /> : (
         <div>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-md-6" style={{ alignItems: "center" }}>
+              <div className="col-md-6 d-flex align-items-center">
                 <div className="filter">
                   <h1 className="allheadings">
-                    <span> For Outdoor Hoading Advertising Do Add Outdoor Hoading In Cart, By Loaction where You want to ADS.</span>
+                    <span>For Outdoor Hording Advertising, add your desired location to the cart.</span>
                   </h1>
                 </div>
               </div>
-              <div className="col-md-6">
-                <div>
-                  <p className="addbutton" style={{ display: "flex", justifyContent: "end" }}>
-                    <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filterButton">
-                      <span>Filter &nbsp;<i class="bi bi-funnel"></i></span>
-                    </button>
-                  </p>
-                </div>
+              <div className="col-md-6 d-flex justify-content-end">
+                <button onClick={() => setIsFilterVisible(!isFilterVisible)} className="filterButton">
+                  <span>Filter &nbsp;<i className="bi bi-funnel"></i></span>
+                </button>
               </div>
+
               {isFilterVisible && (
                 <div className="col-md-12">
                   <div className="row mb-3">
                     <div className="col-md col-4">
-                      <label htmlFor="">Media</label>
+                      <label htmlFor="stateSelect">State</label>
+                      <select
+                        id="stateSelect"
+                        className="form-select"
+                        value={selectedState}
+                        onChange={(e) => setSelectedState(e.target.value)}
+                      >
+                        <option value=""></option>
+                        {[...new Set(data.map(item => item.state))].map((state, index) => (
+                          <option key={index} value={state}>
+                            {state}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="col-md col-4">
+                      <label htmlFor="citySelect">City</label>
+                      <select
+                        id="citySelect"
+                        className="form-select"
+                        value={selectedCity}
+                        onChange={(e) => setSelectedCity(e.target.value)}
+                        disabled={!selectedState} // Disable if no state is selected
+                      >
+                        <option value=""></option>
+                        {(cities[selectedState] || []).map((city, index) => (
+                          <option key={index} value={city}>
+                            {city}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="col-md col-4">
+                      <label htmlFor="mediaSelect">Media</label>
                       <select
                         id="mediaSelect"
                         className="form-select"
@@ -187,39 +213,8 @@ function OutdoorHording() {
                         ))}
                       </select>
                     </div>
-                    <div className="col-md col-4">
-                      <label htmlFor="">State</label>
-                      <select
-                        className="form-select"
-                        aria-label="State select"
-                        value={selectedState}
-                        onChange={(e) => setSelectedState(e.target.value)}
-                      >
-                        <option value=""></option>
-                        {[...new Set(data.map(item => item.state))].map((state, index) => (
-                          <option key={index} value={state}>
-                            {state}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="col-md col-4">
-                      <label htmlFor="">City</label>
-                      <select
-                        id="citySelect"
-                        className="form-select"
-                        value={selectedCity}
-                        onChange={(e) => setSelectedCity(e.target.value)}
-                      >
-                        <option value=""></option>
-                        {[...new Set(data.map(item => item.city))].map((city, index) => (
-                          <option key={index} value={city}>
-                            {city}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className=" col-md col-12 mt-2 text-center">
+
+                    <div className="col-md-12 mt-2 text-center">
                       <button className="filterButton" onClick={clearFilters}>
                         <span>Clear Filters</span>
                       </button>
@@ -227,6 +222,7 @@ function OutdoorHording() {
                   </div>
                 </div>
               )}
+
               <hr style={{ margin: '5px' }} />
               {loading ? (
                 <div className="text-center">
