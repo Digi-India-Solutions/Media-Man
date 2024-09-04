@@ -178,8 +178,8 @@ function RadioAdvertisement() {
 
                 {isFilterVisible && (
                   <div className="col-md-12">
-                    <div className="filteration mb-3">
-                      <div>
+                    <div className="row mb-3">
+                      <div className="col-md col-3">
                         <label
                           htmlFor="stateSelect"
                           style={{ fontSize: "14px", color: "black" }}
@@ -201,7 +201,7 @@ function RadioAdvertisement() {
                           ))}
                         </select>
                       </div>
-                      <div>
+                      <div className="col-md col-3">
                         <label
                           htmlFor="citySelect"
                           style={{ fontSize: "14px", color: "black" }}
@@ -223,7 +223,7 @@ function RadioAdvertisement() {
                           ))}
                         </select>
                       </div>
-                      <div>
+                      <div className="col-md col-3">
                         <label
                           htmlFor="stationSelect"
                           style={{ fontSize: "14px", color: "black" }}
@@ -245,7 +245,7 @@ function RadioAdvertisement() {
                           ))}
                         </select>
                       </div>
-                      <div>
+                      <div className="col-md-3 mt-4 text-center">
                         <button
                           className="btn btn-danger"
                           onClick={handleClearFilters}

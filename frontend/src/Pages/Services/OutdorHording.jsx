@@ -162,7 +162,7 @@ function OutdoorHording() {
               {isFilterVisible && (
                 <div className="col-md-12">
                   <div className="row mb-3">
-                    <div className="col-md col-4">
+                    <div className="col-md col-3">
                       <label htmlFor="stateSelect">State</label>
                       <select
                         id="stateSelect"
@@ -179,7 +179,7 @@ function OutdoorHording() {
                       </select>
                     </div>
 
-                    <div className="col-md col-4">
+                    <div className="col-md col-3">
                       <label htmlFor="citySelect">City</label>
                       <select
                         id="citySelect"
@@ -197,7 +197,7 @@ function OutdoorHording() {
                       </select>
                     </div>
 
-                    <div className="col-md col-4">
+                    <div className="col-md col-3">
                       <label htmlFor="mediaSelect">Media</label>
                       <select
                         id="mediaSelect"
@@ -214,7 +214,7 @@ function OutdoorHording() {
                       </select>
                     </div>
 
-                    <div className="col-md-12 mt-2 text-center">
+                    <div className="col-md-3 mt-2 text-center">
                       <button className="filterButton" onClick={clearFilters}>
                         <span>Clear Filters</span>
                       </button>
