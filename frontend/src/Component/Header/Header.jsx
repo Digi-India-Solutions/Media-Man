@@ -114,25 +114,33 @@ function Header() {
         <div className="container">
           <div className="top">
             <div className="content">
-              <Link to={"https://www.facebook.com/mediamanadvertise"}>
+              <a href="https://www.facebook.com/mediamanadvertise" target="_blank"
+                rel="noopener noreferrer">
                 <i class="bi bi-facebook"></i>
-              </Link>
-              <Link to={"https://www.linkedin.com/in/pardeep-kumar-4279726a/"}>
+              </a>
+              <a href="https://www.linkedin.com/in/pardeep-kumar-4279726a/"
+                target="_blank"
+                rel="noopener noreferrer">
                 <i class="bi bi-linkedin"></i>
-              </Link>
-              <Link to={"https://www.youtube.com/@mediaman569"}>
+              </a>
+              <a href="https://www.youtube.com/@mediaman569"
+                target="_blank"
+                rel="noopener noreferrer">
                 <i class="bi bi-youtube"></i>
-              </Link>
-              <Link
-                to={
+              </a>
+              <a
+                href=
                   "https://www.instagram.com/mediamanadvertising?igsh=MXdhbWQzZnMwYnQ5Yw=="
-                }
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i class="bi bi-instagram"></i>
-              </Link>
-              <Link to={"/https://x.com/Pk94935427"}>
+              </a>
+              {/* <a href="/https://x.com/Pk94935427"
+                target="_blank"
+                rel="noopener noreferrer">
                 <i class="bi bi-twitter"></i>
-              </Link>
+              </a> */}
 
               {/* <Link>Blogs</Link> */}
             </div>
@@ -215,7 +223,7 @@ function Header() {
                           Outdoor Hoardings
                         </Link>
                       </li>
-                     
+
                       <li>
                         <Link
                           onClick={handleMenuDeActive}
